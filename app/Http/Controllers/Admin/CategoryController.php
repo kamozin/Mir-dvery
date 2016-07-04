@@ -30,7 +30,7 @@ namespace App\Http\Controllers\Admin;
             $category = new Category();
 
             $category->name=$request->input('name');
-//            $category->url=
+            $category->url='aaaa';
 
 
         }
