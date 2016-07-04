@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+    use App\Category;
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
     use App\Http\Requests;
@@ -24,9 +25,12 @@ namespace App\Http\Controllers\Admin;
          *
          * @return \Illuminate\Http\Response
          */
-        public function create()
+        public function create(Request $request)
         {
+            $category = new Category();
 
+            $category->name=$request->input('name');
+//            $category->url=
 
 
         }

@@ -74,6 +74,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/admin/directory/update', 'Admin\DirectoryController@update');
     Route::post('/admin/directory/destroy/{id}', 'Admin\DirectoryController@destroy');
 
-    Route::post('/admin/directory/destroy/{id}', 'Admin\DirectoryController@destroy');
+  
 });
 
