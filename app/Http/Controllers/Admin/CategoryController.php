@@ -7,9 +7,15 @@ namespace App\Http\Controllers\Admin;
     use App\Http\Controllers\Controller;
     use App\Http\Requests;
     use Illuminate\Support\Facades\Input;
+    use Validator;
 
     class CategoryController extends Controller
     {
+        public function __construct()
+        {
+            $this->middleware('auth');
+        }
+
         /**
          * Display a listing of the resource.
          *
@@ -18,6 +24,11 @@ namespace App\Http\Controllers\Admin;
         public function index()
         {
             //
+
+            $category=Category::all();
+
+            return view('admin.category.show');
+
         }
 
         /**
@@ -27,13 +38,34 @@ namespace App\Http\Controllers\Admin;
          */
         public function create(Request $request)
         {
+
+            $v = Validator::make($request->all(), [
+                'file' => 'mimes:jpg,png',
+
+            ]);
+
+            if ($v->fails()) {
+                return redirect()->back()->with('error', 'Формат файла не поддерживается')->withInput();
+            }
             $category = new Category();
 
             $category->name=$request->input('name');
-            $category->url='aaaa';
-            $category->urls='bbbb';
+            $category->url=TranslitController::str2url($request->input('name'));
+            $category->parent_id=$request->input('parent_id');
+            $category->text=$request->input('text');
 
+            $file = $request->file('file');
 
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $filename = $filename . '-' . time() . '.' . $extension;
+            $category->img = $filename;
+
+            $request->file('file')->move('gallery/category/', $filename);
+
+            $category->save();
+
+            return redirect('/admin/category');
 
         }
 

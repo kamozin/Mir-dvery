@@ -24,6 +24,7 @@
                         <div class="x_content">
                             @if (Session::has('error'))
 
+                                {{dd(Session::get('error'))}}
                                 <div class="alert alert-error alert-dismissible fade in" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                                     </button>
@@ -41,7 +42,7 @@
                                 </div>
 
                             @endif
-                            <form id="demo-form2" enctype="multipart/form-data"  method="POST" action="/category/create" class="form-horizontal form-label-left">
+                            <form id="demo-form2" enctype="multipart/form-data"  method="POST" action="/admin/category/create" class="form-horizontal form-label-left">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Наименование категории <span class="required">*</span>
