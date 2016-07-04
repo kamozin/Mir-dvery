@@ -27,7 +27,7 @@ namespace App\Http\Controllers\Admin;
 
             $category=Category::all();
 
-            return view('admin.category.show');
+            return view('admin.category.show', ['category'=>$category]);
 
         }
 

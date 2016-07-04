@@ -48,7 +48,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Наименование категории <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name" required="required" name="name" value="" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="name" required="required" name="name" value="{{$category->name}}" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -64,17 +64,10 @@
                             <div class="form-group">
                                 <label for="message" class="control-label col-md-3 col-sm-3 col-xs-12">Описание категории</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea id="message" class="form-control" name="text"></textarea>
+                                    <textarea id="message" class="form-control" name="text">{{$category->text}}</textarea>
                                 </div>
                             </div>
 
-
-                            <div class="form-group">
-                                <label for="file" class="control-label col-md-3 col-sm-3 col-xs-12">Картинка  категории</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="tema" class="form-control col-md-7 col-xs-12" type="file" name="file">
-                                </div>
-                            </div>
 
                             <div class="ln_solid"></div>
                             <div class="form-group">
