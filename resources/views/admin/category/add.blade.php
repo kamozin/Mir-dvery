@@ -8,7 +8,9 @@
 @section('content')
 
     <div class="container">
-
+        @if (session()->has('error'))
+        {{dd(session()->get('error'))}}
+        @endif
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
@@ -22,26 +24,25 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            @if (session('error'))
+                            @if (session()->has('error'))
 
-                                {{dd(Session::get('error'))}}
                                 <div class="alert alert-error alert-dismissible fade in" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                                     </button>
-                                    <strong>{{session('error')}}</strong>
+                                    <strong></strong>
                                 </div>
 
                             @endif
 
-                            @if (Session::has('message'))
+                            {{--@if (Session::has('message'))--}}
 
-                                <div class="alert alert-success alert-dismissible fade in" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                                    </button>
-                                    <strong>{{Session::get('message')}}</strong>
-                                </div>
+                                {{--<div class="alert alert-success alert-dismissible fade in" role="alert">--}}
+                                    {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>--}}
+                                    {{--</button>--}}
+                                    {{--<strong>{{Session::get('message')}}</strong>--}}
+                                {{--</div>--}}
 
-                            @endif
+                            {{--@endif--}}
                             <form id="demo-form2" enctype="multipart/form-data"  method="POST" action="/admin/category/create" class="form-horizontal form-label-left">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="form-group">

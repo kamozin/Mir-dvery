@@ -25,7 +25,7 @@ class MainController extends Controller
         $page=Page::where('url', '=', $request->name)->get();
 
 
-        return view('page', ['page'=>$page[0]['original']]);
+//        return view('page', ['page'=>$page[0]['original']]);
 
 
     }

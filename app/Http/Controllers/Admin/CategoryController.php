@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Admin;
     use Validator;
     use Input;
     use Storage;
+    use Session;
     class CategoryController extends Controller
     {
         public function __construct()
@@ -39,15 +40,20 @@ namespace App\Http\Controllers\Admin;
         public function create(Request $request)
         {
 
-//            $v = Validator::make($request->all(), [
-//                'file' => 'mimes:jpg,png',
-//
-//            ]);
-//
-//            if ($v->fails()) {
-//
-//                return redirect()->back()->withErrors('error', 'Формат файла не поддерживается')->withInput();
-//            }
+            if($request->input('name')=='aaa'){
+
+              session(['aaa'=>'111']);
+            }
+
+            $v = Validator::make($request->all(), [
+                'file' => 'mimes:jpg,png',
+
+            ]);
+
+            if ($v->fails()) {
+
+                return redirect()->back()->withErrors('error', 'Формат файла не поддерживается')->withInput();
+            }
             $category = new Category();
 
             $category->name=$request->input('name');

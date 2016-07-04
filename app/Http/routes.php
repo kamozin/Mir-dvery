@@ -22,16 +22,16 @@ Route::get('/news/{name}', ['as' => 'main', 'uses' => 'NewsController@index']);
 
 
 
-
+//
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
-// Registration routes...
+//// Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+Route::group(['middleware' => ['web']], function () {
+//    Route::auth();
 
     Route::get('/admin/main', 'HomeController@index');
 //    Новости
