@@ -6,9 +6,9 @@ namespace App\Http\Controllers\Admin;
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
     use App\Http\Requests;
-    use Illuminate\Support\Facades\Input;
     use Validator;
-
+    use Input;
+    use Storage;
     class CategoryController extends Controller
     {
         public function __construct()
@@ -39,14 +39,15 @@ namespace App\Http\Controllers\Admin;
         public function create(Request $request)
         {
 
-            $v = Validator::make($request->all(), [
-                'file' => 'mimes:jpg,png',
-
-            ]);
-
-            if ($v->fails()) {
-                return redirect()->back()->with('error', 'Формат файла не поддерживается')->withInput();
-            }
+//            $v = Validator::make($request->all(), [
+//                'file' => 'mimes:jpg,png',
+//
+//            ]);
+//
+//            if ($v->fails()) {
+//
+//                return redirect()->back()->withErrors('error', 'Формат файла не поддерживается')->withInput();
+//            }
             $category = new Category();
 
             $category->name=$request->input('name');
@@ -78,8 +79,8 @@ namespace App\Http\Controllers\Admin;
         public function store(Request $request)
         {
             //
-
-            return view('admin.category.add');
+            $catigories=$this->getCategories();
+            return view('admin.category.add', ['categories'=>$catigories]);
         }
 
         /**
@@ -93,6 +94,15 @@ namespace App\Http\Controllers\Admin;
             //
         }
 
+
+        public function getCategories(){
+
+
+            $categories=Category::all();
+
+            return $categories;
+        }
+
         /**
          * Show the form for editing the specified resource.
          *
@@ -101,7 +111,14 @@ namespace App\Http\Controllers\Admin;
          */
         public function edit($id)
         {
-            //
+
+            $category=Category::find($id);
+
+            $categories=$this->getCategories();
+
+            return view('admin.category.edit', ['category'=>$category, 'categories'=>$categories]);
+
+
         }
 
         /**
@@ -111,10 +128,71 @@ namespace App\Http\Controllers\Admin;
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function update(Request $request, $id)
+        public function update(Request $request)
         {
-            //
+
+            $category=Category::find($request->input('id'));
+
+            $category->name=$request->input('name');
+            $category->url=TranslitController::str2url($request->input('name'));
+            $category->text=$request->input('text');
+
+            $category->save();
+
+            return redirect('/admin/category');
+
         }
+
+
+        public function editPhoto($id){
+
+            $category=Category::find($id);
+
+            if($category){
+            return view('admin.category.photo', ['id'=>$id]);
+            }else{
+
+                return redirect()->back();
+
+            }
+
+        }
+
+
+        public function updatePhoto(Request $request){
+
+            $v = Validator::make($request->all(), [
+                'file' => 'mimes:jpg,png',
+
+            ]);
+
+            if ($v->fails()) {
+
+                return redirect()->back()->withErrors('error', 'Формат файла не поддерживается')->withInput();
+            }
+
+            $category=Category::find($request->input('id'));
+
+            $photo_old=$category->img;
+
+
+            $file = $request->file('file');
+
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $filename = $filename . '-' . time() . '.' . $extension;
+            $category->img = $filename;
+
+            if($request->file('file')->move('gallery/category/', $filename)) {
+
+                Storage::delete('gallery/category/'.$photo_old);
+                $category->save();
+                return redirect('/admin/category');
+
+            }
+            return redirect()->back()->withErrors('error', 'Ошибка')->withInput();
+        }
+
 
         /**
          * Remove the specified resource from storage.
@@ -124,6 +202,10 @@ namespace App\Http\Controllers\Admin;
          */
         public function destroy($id)
         {
-            //
+            $category=Category::find($id);
+
+            $category->delete();
+
+            return redirect('/admin/category');
         }
     }

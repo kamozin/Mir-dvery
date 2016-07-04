@@ -54,14 +54,16 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/admin/category', 'Admin\CategoryController@index');
     Route::get('/admin/category/store', 'Admin\CategoryController@store');
     Route::get('/admin/category/edit/{id}', 'Admin\CategoryController@edit');
+    Route::get('/admin/category/photo/{id}', 'Admin\CategoryController@editPhoto');
     Route::post('/admin/category/create', 'Admin\CategoryController@create');
     Route::post('/admin/category/update', 'Admin\CategoryController@update');
-    Route::post('/admin/category/destroy/{id}', 'Admin\CategoryController@destroy');
+    Route::post('/admin/category/update/photo', 'Admin\CategoryController@updatePhoto');
+    Route::get('/admin/category/destroy/{id}', 'Admin\CategoryController@destroy');
 
     //    товары
     Route::get('/admin/products', 'Admin\ProductsController@index');
     Route::get('/admin/products/store', 'Admin\ProductsController@store');
-    Route::get('/admin/category/edit/{id}', 'Admin\ProductsController@edit');
+    Route::get('/admin/products/edit/{id}', 'Admin\ProductsController@edit');
     Route::post('/admin/products/create', 'Admin\ProductsController@create');
     Route::post('/admin/products/update', 'Admin\ProductsController@update');
     Route::post('/admin/products/destroy/{id}', 'Admin\ProductsController@destroy');

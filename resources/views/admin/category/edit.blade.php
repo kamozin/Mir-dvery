@@ -41,7 +41,7 @@
                             </div>
 
                         @endif
-                        <form id="demo-form2" enctype="multipart/form-data"  method="POST" action="/category/create" class="form-horizontal form-label-left">
+                        <form id="demo-form2" enctype="multipart/form-data"  method="POST" action="/admin/category/update" class="form-horizontal form-label-left">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="id" value="{{ $category->id }}">
                             <div class="form-group">
@@ -56,7 +56,20 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <select name="parent_id" class="form-control" id="parent_id">
-                                        <option value="0">Родительская категория</option>
+                                        @if($category->parent_id==0)
+                                        <option value="0" selected >Родительская категория</option>
+                                        @else
+
+                                            @foreach($categories as $c)
+
+                                                @if($c->id==$category->id)
+
+                                                    @else
+                                                    <option value="{{$c->id}}">{{$c->name}}</option>
+                                                    @endif
+                                                @endforeach
+
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -72,8 +85,8 @@
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <a href="/users" class="btn btn-primary">Отмена</a>
-                                    <button type="submit" class="btn btn-success">Создать категорию</button>
+                                    <a href="/admin/category" class="btn btn-primary">Отмена</a>
+                                    <button type="submit" class="btn btn-success">Обновить категорию</button>
                                 </div>
                             </div>
 

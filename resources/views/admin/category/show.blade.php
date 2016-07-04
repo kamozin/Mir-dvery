@@ -13,7 +13,8 @@
                         <a href="/admin/category/store" class="btn btn-primary">Добавить категорию</a>
                     </div>
                     <div class="panel-body">
-                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
+                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap"
+                               cellspacing="0"
                                width="100%">
                             <thead>
                             <tr>
@@ -21,6 +22,7 @@
                                 <th>Наименование категории</th>
                                 <th>Категория родитель</th>
                                 <th>Редактировать</th>
+                                <th>Обновить фото категории</th>
                                 <th>Удалить</th>
                             </tr>
                             </thead>
@@ -33,12 +35,20 @@
                                     </td>
                                     <td>
                                         @if($c->parent_id==0)
-                                      Категория родитель
-                                            @else
+                                            Категория родитель
+                                        @else
+                                            @foreach($category as $cat)
+
+                                                @if($c->parent_id==$cat->id)
+                                                    {{$cat->name}}
+
+                                                @endif
+                                            @endforeach
 
                                         @endif
                                     </td>
                                     <td><a href="/admin/category/edit/{{$c->id}}">Редактировать</a></td>
+                                    <td><a href="/admin/category/photo/{{$c->id}}">Обновить фото</a></td>
                                     <td><a href="/admin/category/destroy/{{$c->id}}">Удалить</a></td>
 
                                 </tr>
@@ -56,11 +66,11 @@
 
 @section('header')
 
-    <link href="/includes/js/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/includes/admin/js/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
 @stop
 @section('footer')
-    <script src="/includes/js/datatables/jquery.dataTables.min.js"></script>
+    <script src="/includes/admin/js/datatables/jquery.dataTables.min.js"></script>
     <script>
 
         $('#datatable-responsive').DataTable({

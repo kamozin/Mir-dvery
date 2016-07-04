@@ -22,13 +22,13 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            @if (Session::has('error'))
+                            @if (session('error'))
 
                                 {{dd(Session::get('error'))}}
                                 <div class="alert alert-error alert-dismissible fade in" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                                     </button>
-                                    <strong>{{Session::get('error')}}</strong>
+                                    <strong>{{session('error')}}</strong>
                                 </div>
 
                             @endif
@@ -48,7 +48,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Наименование категории <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="name" required="required" name="name" value="" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="name" required="required" name="name" value="{{Input::old('name')}}" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -57,6 +57,11 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <select name="parent_id" class="form-control" id="parent_id">
                                             <option value="0">Родительская категория</option>
+                                            @foreach($categories as $c)
+
+                                                <option value="{{$c->id}}">{{$c->name}}</option>
+
+                                                @endforeach
                                         </select>
                                     </div>
                                 </div>

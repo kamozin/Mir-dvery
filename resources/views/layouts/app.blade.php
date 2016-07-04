@@ -18,8 +18,8 @@
     <!-- Custom styling plus plugins -->
     <link href="/includes/admin/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/includes/admin/css/maps/jquery-jvectormap-2.0.3.css" />
-    <link href="/includes/admin/icheck/flat/green.css" rel="stylesheet" />
-    <link href="/includes/css/floatexamples.css" rel="stylesheet" type="text/css" />
+    <link href="/includes/admin/css/icheck/flat/green.css" rel="stylesheet" />
+    <link href="/includes/admin/css/floatexamples.css" rel="stylesheet" type="text/css" />
 
     <script src="/includes/admin/js/jquery.min.js"></script>
     <script src="/includes/admin/js/nprogress.js"></script>
