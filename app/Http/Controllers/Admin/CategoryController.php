@@ -31,6 +31,8 @@ namespace App\Http\Controllers\Admin;
 
             $category->name=$request->input('name');
             $category->url='aaaa';
+            $category->urls='bbbb';
+
 
 
         }
