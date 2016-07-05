@@ -217,6 +217,11 @@ header #logotype_page {
   text-align: center;
 }
 
+.container .catalog #produkt_catalog #produkt_image {
+  width: 210px;
+  height: 150px;
+}
+
 .container .catalog #produkt_catalog A:hover {
   color: #888;
 }
@@ -295,8 +300,8 @@ header #logotype_page {
 }
 
 #zoom {
-  width: 150px !important;
-  height: 150px !important;
+  width: 150px;
+  height: 150px;
   float: left;
   border: 3px solid #fff;
   margin: 5px;
@@ -460,4 +465,42 @@ footer .fade_dop {
 
 .left_bar ul.topnav span {
   float: right;
+}
+
+.error {
+  background-color: #f9e6c8;
+  text-align: center;
+}
+
+.error h2 {
+  font-size: 2.5em;
+}
+
+.error h3 {
+  font-size: 2em;
+}
+
+.error h2, .error h3 {
+  color: #90633a;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.error img {
+  width: 80%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.error #error_but {
+  background-color: #000;
+  padding: 2%;
+  color: #fff;
+  text-decoration: none;
+  width: 300px;
+  height: 200px;
+}
+
+.error #error_but:hover, .error #error_but:focus {
+  color: #90633a;
 }

@@ -35,7 +35,7 @@
         <ul class="nav side-menu">
 
             <li><a href="/admin/news/store"><i class="fa fa-plus-circle"></i>Добавить новости</a>
-            </li><li><a href="/admin/news/store"><i class="fa fa-plus-circle"></i>Все новости</a>
+            </li><li><a href="/admin/news/"><i class="fa fa-plus-circle"></i>Все новости</a>
             </li>
 
         </ul>
@@ -43,7 +43,7 @@
         <ul class="nav side-menu">
 
             <li><a href="/admin/actions/store"><i class="fa fa-plus-circle"></i>Добавить акцию</a>
-            </li><li><a href="/admin/actions/store"><i class="fa fa-plus-circle"></i>Все акции</a>
+            </li><li><a href="/admin/actions/"><i class="fa fa-plus-circle"></i>Все акции</a>
             </li>
 
 

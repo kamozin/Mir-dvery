@@ -34,19 +34,23 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
     Route::get('/admin/main', 'HomeController@index');
 //    Новости
-    Route::get('/admin/news', 'Admin\NewsAdminController@index');
-    Route::get('/admin/news/store', 'Admin\NewsAdminController@store');
-    Route::get('/admin/news/edit/{id}', 'Admin\NewsAdminController@edit');
-    Route::post('/admin/news/create', 'Admin\NewsAdminController@create');
-    Route::post('/admin/news/update', 'Admin\NewsAdminController@update');
-    Route::post('/admin/news/destroy/{id}', 'Admin\NewsAdminController@destroy');
+    Route::get('/admin/news', 'Admin\NewsController@index');
+    Route::get('/admin/news/store', 'Admin\NewsController@store');
+    Route::get('/admin/news/edit/{id}', 'Admin\NewsController@edit');
+    Route::get('/admin/news/photo/{id}', 'Admin\NewsController@editPhoto');
+    Route::post('/admin/news/create', 'Admin\NewsController@create');
+    Route::post('/admin/news/update', 'Admin\NewsController@update');
+    Route::post('/admin/news/update/photo', 'Admin\NewsController@updatePhoto');
+    Route::post('/admin/news/destroy/{id}', 'Admin\NewsController@destroy');
 
     //    Акции
     Route::get('/admin/actions', 'Admin\ActionsController@index');
     Route::get('/admin/actions/store', 'Admin\ActionsController@store');
     Route::get('/admin/actions/edit/{id}', 'Admin\ActionsController@edit');
+    Route::get('/admin/actions/photo/{id}', 'Admin\ActionsController@editPhoto');
     Route::post('/admin/actions/create', 'Admin\ActionsController@create');
     Route::post('/admin/actions/update', 'Admin\ActionsController@update');
+    Route::post('/admin/actions/update/photo', 'Admin\ActionsController@updatePhoto');
     Route::post('/admin/actions/destroy/{id}', 'ActionsController@destroy');
 
 //    Категории

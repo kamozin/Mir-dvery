@@ -8,45 +8,18 @@
 
     <div class="catalog">
 
+        @foreach($category as $c)
         <div id="produkt_catalog">
-            <a href="index.html"> <img src="/includes/image/produkt/1.png">
-                <p> Входные двери</p></a>
+            <a href="/catalog/{{$c->url}}">
+                <div id="produkt_image">
+                <img style="width: 225px; height: 150px" src="/gallery/category/{{$c->img}}">
+                    </div>
+                <p> {{$c->name}}</p></a>
         </div>
 
-        <div id="produkt_catalog">
-            <a href="index.html"><img src="/includes/image/produkt/2.jpg">
-                <p> Межкомнатные двери</p></a>
-        </div>
+            @endforeach
 
-        <div id="produkt_catalog">
-            <a href="index.html"><img src="/includes/image/produkt/3.jpg">
-                <p>Художественная ковка</p></a>
-        </div>
 
-        <div id="produkt_catalog">
-            <a href="index.html"><img src="/includes/image/produkt/4.jpg">
-                <p> Межкомнатные перегородки</p></a>
-        </div>
-
-        <div id="produkt_catalog">
-            <a href="index.html"><img src="/includes/image/produkt/5.png">
-                <p> Входные двери в наличии</p></a>
-        </div>
-
-        <div id="produkt_catalog">
-            <a href="index.html"><img src="/includes/image/produkt/6.jpg">
-                <p> Межкомнатные белые двери</p></a>
-        </div>
-
-        <div id="produkt_catalog">
-            <a href="index.html"><img src="/includes/image/produkt/7.jpg">
-                <p> Антикризисное предложение</p></a>
-        </div>
-
-        <div id="produkt_catalog">
-            <a href="index.html"><img src="/includes/image/produkt/8.jpg">
-                <p> Отделка откосов</p></a>
-        </div>
 
     </div>
 

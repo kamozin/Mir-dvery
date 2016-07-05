@@ -12,7 +12,7 @@ class CreateDirectory extends Migration
      */
     public function up()
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('directory', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name'); //название справочника
             $table->rememberToken();
