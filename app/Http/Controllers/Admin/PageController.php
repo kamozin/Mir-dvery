@@ -9,6 +9,12 @@ use App\Http\Requests;
 
 class PageController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,8 +37,11 @@ class PageController extends Controller
         $page = new Page();
 
         $page->name=$request-input('name');
-//        $page->url=
-
+        $page->url=TranslitController::str2url($request->input('name'));
+        $page->text=$request->input('text');
+        $page->description=$request->input('description');
+        $page->keywords=$request->input('keywords');
+        $page->title=$request->input('title');
     }
 
     /**

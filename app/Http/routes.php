@@ -30,8 +30,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-//Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+//    Route::auth();
 
     Route::get('/admin/main', 'HomeController@index');
 //    Новости
@@ -77,5 +76,14 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::post('/admin/directory/destroy/{id}', 'Admin\DirectoryController@destroy');
 
 
-//});
+  //    Страницы
+    Route::get('/admin/page', 'Admin\PageController@index');
+    Route::get('/admin/page/store', 'Admin\PageController@store');
+    Route::get('/admin/page/edit/{id}', 'Admin\PageController@edit');
+    Route::post('/admin/page/create', 'Admin\PageController@create');
+    Route::post('/admin/page/update', 'Admin\PageController@update');
+    Route::post('/admin/page/destroy/{id}', 'Admin\PageController@destroy');
+
+
+
 

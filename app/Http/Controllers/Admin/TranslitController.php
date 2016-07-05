@@ -10,7 +10,10 @@ use Session;
 class TranslitController extends Controller
 {
     //
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     static function str2url($str) {
 

@@ -13,7 +13,9 @@
         <h3>Товары</h3>
         <ul class="nav side-menu">
 
-            <li><a href="/vkr/store"><i class="fa fa-plus-circle"></i>Добавить/Найти ВКР</a>
+            <li><a href="/admin/products/store"><i class="fa fa-plus-circle"></i>Добавить товар</a>
+            </li>
+            <li><a href="/admin/products"><i class="fa fa-plus-circle"></i>Все товары</a>
             </li>
 
 
@@ -21,7 +23,9 @@
         <h3>Справочники</h3>
         <ul class="nav side-menu">
 
-            <li><a href="/vkr/store"><i class="fa fa-plus-circle"></i>Добавить/Найти ВКР</a>
+            <li><a href="/admin/directory/store"><i class="fa fa-plus-circle"></i>Добавить справочник</a>
+            </li>
+            <li><a href="/admin/directory"><i class="fa fa-plus-circle"></i>Все справочники</a>
             </li>
 
 
@@ -30,15 +34,16 @@
         <h3>Новости</h3>
         <ul class="nav side-menu">
 
-            <li><a href="/vkr/store"><i class="fa fa-plus-circle"></i>Добавить/Найти ВКР</a>
+            <li><a href="/admin/news/store"><i class="fa fa-plus-circle"></i>Добавить новости</a>
+            </li><li><a href="/admin/news/store"><i class="fa fa-plus-circle"></i>Все новости</a>
             </li>
-
 
         </ul>
         <h3>Акции</h3>
         <ul class="nav side-menu">
 
-            <li><a href="/vkr/store"><i class="fa fa-plus-circle"></i>Добавить/Найти ВКР</a>
+            <li><a href="/admin/actions/store"><i class="fa fa-plus-circle"></i>Добавить акцию</a>
+            </li><li><a href="/admin/actions/store"><i class="fa fa-plus-circle"></i>Все акции</a>
             </li>
 
 
@@ -46,7 +51,9 @@
         <h3>Страницы</h3>
         <ul class="nav side-menu">
 
-            <li><a href="/vkr/store"><i class="fa fa-plus-circle"></i>Добавить/Найти ВКР</a>
+            {{--<li><a href="/admin/page/store"><i class="fa fa-plus-circle"></i>Добавить страницу</a>--}}
+            {{--</li>--}}
+            <li><a href="/admin/page"><i class="fa fa-plus-circle"></i>Все страницы</a>
             </li>
 
 
