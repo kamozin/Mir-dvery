@@ -1,131 +1,119 @@
+@extends('app')
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lrrang="ru" lang="ru">
-<head>
-    <title>Магазин дверей</title>
-    <meta name="description" content="Главная"></meta>
-    <meta name="keywords" content="Главная"></meta>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta>
-    <meta name='yandex-verification' content='6c457d81ce33d862' />
-    {{--<link rel="stylesheet" type="text/css" href="/includes/css/style1.css" />--}}
-    {{--<link rel="stylesheet" type="text/css" href="/includes/css/style2.css" />--}}
-    <link rel="stylesheet" type="text/css" href="/includes/css/style.css" />
 
-    {{--<!-- jQuery -->--}}
-    {{--<script type="text/javascript" src="/hostcmsfiles/jquery/jquery.js"></script>--}}
-    {{--<!-- validate -->--}}
-    {{--<script type="text/javascript" src="/hostcmsfiles/jquery/jquery.validate.js"></script>--}}
-    {{--<!-- LightBox -->--}}
-    {{--<script type="text/javascript" src="/hostcmsfiles/jquery/lightbox/js/jquery.lightbox.js"></script>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/hostcmsfiles/jquery/lightbox/css/jquery.lightbox.css" media="screen" />--}}
+@section('content')
 
-    {{--<script type="text/javascript" src="/templates/template1/hostcms.js"></script>--}}
-    {{--<script type="text/javascript" src="/hostcmsfiles/ajax/JsHttpRequest.js"></script>--}}
-    {{--<script type="text/javascript" src="/hostcmsfiles/ajax/ajax.js"></script>--}}
-    {{--<script type="text/javascript" src="/hostcmsfiles/main.js"></script>--}}
-    {{--<script type="text/javascript" src="/hostcmsfiles/menu.js"></script>--}}
+    <h2>Каталог продукции</h2>
 
-    <!--  BBcode -->
-    {{--<script type="text/javascript" src="/hostcmsfiles/jquery/bbedit/jquery.bbedit.js"></script>--}}
 
-    {{--<script type="text/javascript">--}}
-        {{--$(function() {--}}
-            {{--$('#gallery a:has(img)').lightBox();--}}
+    <div class="catalog">
 
-            {{--$(window).scroll(function() {--}}
-                {{--if ($(window).scrollTop() > 0) {--}}
-                    {{--$('#top_menu').addClass('fixedMenu');--}}
-                {{--} else {--}}
-                    {{--$('#top_menu').removeClass('fixedMenu');--}}
-                {{--}--}}
-            {{--});--}}
-        {{--});--}}
-    {{--</script>--}}
-
-</head>
-
-<body>
-<div id="content-holder">
-    <div id="header-all">
-        <div id="header" style="background: url('../gallery/slider_top/2.jpg')">
-            <div id="logotype"><a href="/"><img src="/includes/img/logotype.png" alt="Мир Дверей" width="405" height="107" border="0" title="Мир Дверей"></a></div>
-            <div id="top_menu">
-                <!-- Верхнее меню -->
-                <ul>
-                    <li>
-                        <a href="/about" class="menu_center">О компании</a>
-                    </li>
-                    <li>
-                        <a href="/catalog" class="menu_center">Каталог продукции</a>
-                    </li>
-                    <li>
-                        <a href="/e-catalog" class="menu_center">Электронный каталог</a>
-                    </li>
-                    <li>
-                        <a href="/service" class="menu_center">Сервис</a>
-                    </li>
-                    <li>
-                        <a href="/credit" class="menu_center">Кредит</a>
-                    </li>
-                    <li>
-                        <a href="/contacts" class="menu_center">Контакты</a>
-                    </li>
-                </ul>
-                <div id="phone">
-                    <p style="margin-top: 0px;">Брянск, ул. Дуки, д. 65 (здание МПСУ)<br />Телефоны: (4832) 33-77-13, 30-60-34</p>				</div>
-                <div class="clear"></div>
-            </div>
+        <div id="produkt_catalog">
+            <a href="index.html"> <img src="/includes/image/produkt/1.png">
+                <p> Входные двери</p></a>
         </div>
-    </div>
-    <div id="content">
-        <!-- Вызов шаблона для текущей страницы -->
-        <!-- Центральный блок -->
 
-     @yield('content')
+        <div id="produkt_catalog">
+            <a href="index.html"><img src="/includes/image/produkt/2.jpg">
+                <p> Межкомнатные двери</p></a>
+        </div>
 
+        <div id="produkt_catalog">
+            <a href="index.html"><img src="/includes/image/produkt/3.jpg">
+                <p>Художественная ковка</p></a>
+        </div>
 
+        <div id="produkt_catalog">
+            <a href="index.html"><img src="/includes/image/produkt/4.jpg">
+                <p> Межкомнатные перегородки</p></a>
+        </div>
+
+        <div id="produkt_catalog">
+            <a href="index.html"><img src="/includes/image/produkt/5.png">
+                <p> Входные двери в наличии</p></a>
+        </div>
+
+        <div id="produkt_catalog">
+            <a href="index.html"><img src="/includes/image/produkt/6.jpg">
+                <p> Межкомнатные белые двери</p></a>
+        </div>
+
+        <div id="produkt_catalog">
+            <a href="index.html"><img src="/includes/image/produkt/7.jpg">
+                <p> Антикризисное предложение</p></a>
+        </div>
+
+        <div id="produkt_catalog">
+            <a href="index.html"><img src="/includes/image/produkt/8.jpg">
+                <p> Отделка откосов</p></a>
+        </div>
 
     </div>
-</div>
 
-<div id="footer">
-    <div id="footer-position">
-        <div id="f-contacts">
-            <span>+7 (4832) 33-77-13</span><br/>
-            <span>+7 (4832) 30-60-34</span>
-        </div>
-        <div id="site_info">
-            &copy; 2010-2016 Компания «Мир Дверей» - металлические и межкомнатные двери в Брянске<br />
 
-            <a href="/map/">Карта сайта</a>
-        </div>
-        <div id="counter">
+    <h2> Новости</h2>
 
+    <div class="slaider" id="slaider_ak">
+
+        <div class="fade1">
+            <div><img src="/includes/image/slaider/sl1_ak.jpg" id="sl_ak"></div>
+            <div><img src="/includes/image/slaider/sl2_ak.jpg" id="sl_ak"></div>
+            <div><img src="/includes/image/slaider/sl3_ak.png" id="sl_ak"></div>
+            <div><img src="/includes/image/slaider/sl1_ak.jpg" id="sl_ak"></div>
+            <div><img src="/includes/image/slaider/sl2_ak.jpg" id="sl_ak"></div>
+            <div><img src="/includes/image/slaider/sl3_ak.png" id="sl_ak"></div>
         </div>
-        <div class="clear"></div>
     </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<script>
+    <h2> Акции</h2>
 
 
-    i = 0;
+    <div class="slaider" id="slaider_us">
+
+        <div class="fade1">
+            <div id="info"><a href="index.html"><img src="/includes/image/slaider/dos.png" class="nuw_sl"><p> горячие предложения </p></a></div>
+            <div id="info"><a href="index.html"><img src="/includes/image/slaider/dos.png" class="nuw_sl"><p>Беспроцентная рассрочка на 10 месяцев и без первоначального взноса </p></a></div>
+            <div id="info"><a href="index.html"><img src="/includes/image/slaider/dos.png" class="nuw_sl"><p>Вызвать замерщика? </p></a></div>
+            <div id="info"><a href="index.html"><img src="/includes/image/slaider/dos.png" class="nuw_sl"><p> Вызвать менеджера? </p></a></div>
+            <div id="info"><a href="index.html"><img src="/includes/image/slaider/dos.png" class="nuw_sl"><p> Доставка </p></a></div>
+            <div id="info"><a href="index.html"><img src="/includes/image/slaider/dos.png" class="nuw_sl"><p> Установка </p></a></div>
+        </div>
+    </div>
+
+    <div id="kompani_text">
+        <h1>Компания «Мир Дверей»</h1>
+        <p>Компания «Мир Дверей» специализируется на производстве стальных дверей и изделий художественной ковки (ворота, решётки, заборы, предметы интерьера). Также у нас представлен широкий модельный ряд межкомнатных дверей с различными видами отделки от нескольких десятков производителей, качество продукции которых проверено временем.</p>
+        <p>Благодаря многолетнему опыту работы компании «Мир Дверей», мы можем предоставить покупателям нетолько качественные товары, но и грамотные консультации по выбору металлических и межкомнтаных дверей, доставке по области и монтажу. Также мы будем рады ответить на все ваши вопросы, которые возникают у вас на первом этапе отделки дома, офиса или в начале капитального ремонта квартиры:</p>
+        <ol>
+            <li>Какие двери подойдут вам в квартиру?</li>
+            <li>Какая отделка и комплектующие двери?</li>
+            <li>Подойдет ли дверь для установки на улицу?</li>
+            <li>Какую отделку, в случае порчи, можно заменить на месте?</li>
+            <li>И многие другие вопросы.</li>
+        </ol>
+        <p>На самом деле возникает очень много вопросов, если не разобраться и сделать неправильный шаг в выборе двери. Это последующие ремонты, замена двери, ремонт замков, ремонт отделки в случае порчи или износа в процессе эксплуатации.</p>
+        <p>Мы осуществляем выезд нашего специалиста к клиенту для консультации, замера и оформления заказа на месте.</p>
+        <p>Также мы можем установить только металлоконструкцию, а когда ремонт будет закончен и вы определитесь с выбором межкомнатных дверей или цветовой гаммой прихожей, мы подберём и установим вам внутренню отделку двери, которая будет гармонично сочетаться с интерьером вашего дома.</p>
+        <p>Остановив свой выбор на компании «Мир Дверей», все консультации вы получите абсолютно бесплатно! А десятилетний опыт работы с дверьми даёт нам уверенность в том, что мы предложим вам правильный вариант и ту продукцию, с которой не будет проблем!</p>
+        <p>Мы ценим ваше время и предлагаем вам качественную продукцию по доступным ценам!</p>
+        <h2>Семь причин выбрать нашу компанию</h2>
+        <ol>
+
+            <li>Мы предлагаем нашу продукцию по доступным ценам и гарантируем высокое качество.</li>
+            <li>У нас вы можете оформить кредит на любые товары.</li>
+            <li>Все работы выполняются нашими специалистами «под ключ».</li>
+            <li>Все работы выполняются точно в срок.</li>
+            <li>Мы оказываем вам бесплатные консультации об интересующей вас продукции и услугах.</li>
+            <li>Любые варианты отделки в зависимости от ваших предпочтений.</li>
+            <li>Возможна любая система оплаты и бартер.</li>
+        </ol>
+        <h2>Дополнительная информация</h2>
+        <p>По поводу стоимости нашей продукции, сроков изготовления, доставки и монтажа вы можете уточнить в нашем центральном офисе компании «Мир Дверей» по адресу: г. Брянск, ул. Дуки, д. 65 (здание МПСУ) или по телефонам: (4832) 33-77-13, 30-60-34, 30-60-35.</p>
+        <p>Для наших клиентов мы осуществляем доставку по Брянской области и в другие регионы.</p>
+        <p style="margin-bottom: 0px;">Специальное предложение по доставке в Москву и Московскую область.</p>
+    </div>
 
 
-    timerID = setTimeout(function tick () {
-        if (i < 8) {
 
-            i++;
-            $("#header").css('background-image', 'url(../gallery/slider_top/' + i + '.jpg)');
-            timerID = setTimeout(tick, 5000);
-        }
 
-        i=0;
-    }, 5000);
-
-//
-
-</script>
-</body>
-</html>
+@stop

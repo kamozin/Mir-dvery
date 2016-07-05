@@ -15,17 +15,17 @@ class MainController extends Controller
     public function index(){
 
 
-        return view('app');
+        return view('main');
 
     }
 
 
-    public function page(Request $request){
+    public function page($name){
 
-        $page=Page::where('url', '=', $request->name)->get();
+        $page=Page::where('url', '=', $name)->get();
 
 
-//        return view('page', ['page'=>$page[0]['original']]);
+        return view('page', ['page'=>$page[0]['original']]);
 
 
     }

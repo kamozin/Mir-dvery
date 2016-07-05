@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Page;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 class PageController extends Controller
@@ -22,7 +22,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $page=Page::all();
+
+        return view('admin.page.show', ['page'=>$page]);
     }
 
     /**
@@ -61,9 +63,11 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
+
+
     }
 
     /**
@@ -74,7 +78,9 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $page=Page::find($id);
+
+        return view('admin.page.edit', ['page'=>$page]);
     }
 
     /**
@@ -84,9 +90,25 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        $page=Page::find($request->input('id'));
+
+        $page->name=$request->input('name');
+
+        $page->url=TranslitController::str2url($request->input('name'));
+        $page->text=$request->input('text');
+
+        $page->description=$request->input('description');
+        $page->keywords=$request->input('keywords');
+        $page->title=$request->input('title');
+
+        $page->save();
+
+        return redirect('/admin/page');
+
+
     }
 
     /**

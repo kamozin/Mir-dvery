@@ -15,7 +15,7 @@
 Route::get('/', ['as' => 'main', 'uses' => 'MainController@index']);
 Route::get('/catalog', ['as' => 'main', 'uses' => 'CatalogController@index']);
 Route::get('/e-catalog', ['as' => 'main', 'uses' => 'MainController@ecatalog']);
-Route::get('/{name}', ['as' => 'main', 'uses' => 'MainController@page']);
+Route::get('/page/{name}', ['as' => 'main', 'uses' => 'MainController@page']);
 Route::get('/actions/{name}', ['as' => 'main', 'uses' => 'ActionsController@index']);
 Route::get('/news/{name}', ['as' => 'main', 'uses' => 'NewsController@index']);
 
