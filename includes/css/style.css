@@ -300,8 +300,8 @@ header #logotype_page {
 }
 
 #zoom {
-  width: 150px;
-  height: 150px;
+  width: 150px !important;
+  height: 150px !important;
   float: left;
   border: 3px solid #fff;
   margin: 5px;
