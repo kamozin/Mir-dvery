@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Категории</div>
+                    <div class="panel-heading">Акции</div>
 
                     <div class="panel-body">
-                        <a href="/admin/news/store" class="btn btn-primary">Добавить новость</a>
+                        <a href="/admin/actions/store" class="btn btn-primary">Добавить акцию</a>
                     </div>
                     @if(session()->has('success'))
                         <div class="alert alert-success alert-dismissible fade in" role="alert">
@@ -26,28 +26,28 @@
                             <thead>
                             <tr>
                                 <th>№ п/п</th>
-                                <th>Наименование новости</th>
-                                <th>Описание новости</th>
-                                <th>Ключевые слова новости</th>
-                                <th>Заголовок новости</th>
-                                <th>Редактировать новость</th>
-                                <th>Обновить фото новости</th>
-                                <th>Удалить новость</th>
+                                <th>Наименование акции</th>
+                                <th>Описание акии</th>
+                                <th>Ключевые слова акции</th>
+                                <th>Заголовок акции</th>
+                                <th>Редактировать акцию</th>
+                                <th>Обновить фото акции</th>
+                                <th>Удалить акцию</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($news as $n)
+                            @foreach($actions as $a)
                                 <tr>
-                                    <td>{{$n->id}}</td>
+                                    <td>{{$a->id}}</td>
                                     <td>
-                                        {{$n->name}}
+                                        {{$a->name}}
                                     </td>
-                                    <td>{{$n->description}}</td>
-                                    <td>{{$n->keywords}}</td>
-                                    <td>{{$n->title}}</td>
-                                    <td><a href="/admin/news/edit/{{$n->id}}">Редактировать</a></td>
-                                    <td><a href="/admin/news/photo/{{$n->id}}">Обновить фото новости</a></td>
-                                    <td><a href="/admin/news/destroy/{{$n->id}}">Удалить</a></td>
+                                    <td>{{$a->description}}</td>
+                                    <td>{{$a->keywords}}</td>
+                                    <td>{{$a->title}}</td>
+                                    <td><a href="/admin/actions/edit/{{$a->id}}">Редактировать</a></td>
+                                    <td><a href="/admin/actions/photo/{{$a->id}}">Обновить фото акции</a></td>
+                                    <td><a href="/admin/actions/destroy/{{$a->id}}">Удалить</a></td>
 
                                 </tr>
                             @endforeach

@@ -41,7 +41,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::post('/admin/news/create', 'Admin\NewsController@create');
     Route::post('/admin/news/update', 'Admin\NewsController@update');
     Route::post('/admin/news/update/photo', 'Admin\NewsController@updatePhoto');
-    Route::post('/admin/news/destroy/{id}', 'Admin\NewsController@destroy');
+    Route::get('/admin/news/destroy/{id}', 'Admin\NewsController@destroy');
 
     //    Акции
     Route::get('/admin/actions', 'Admin\ActionsController@index');
@@ -51,7 +51,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::post('/admin/actions/create', 'Admin\ActionsController@create');
     Route::post('/admin/actions/update', 'Admin\ActionsController@update');
     Route::post('/admin/actions/update/photo', 'Admin\ActionsController@updatePhoto');
-    Route::post('/admin/actions/destroy/{id}', 'ActionsController@destroy');
+    Route::get('/admin/actions/destroy/{id}', 'ActionsController@destroy');
 
 //    Категории
     Route::get('/admin/category', 'Admin\CategoryController@index');
@@ -69,7 +69,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::get('/admin/products/edit/{id}', 'Admin\ProductsController@edit');
     Route::post('/admin/products/create', 'Admin\ProductsController@create');
     Route::post('/admin/products/update', 'Admin\ProductsController@update');
-    Route::post('/admin/products/destroy/{id}', 'Admin\ProductsController@destroy');
+    Route::get('/admin/products/destroy/{id}', 'Admin\ProductsController@destroy');
 
     //    справочники
     Route::get('/admin/directory', 'Admin\DirectoryController@index');
@@ -77,7 +77,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::get('/admin/directory/edit/{id}', 'Admin\DirectoryController@edit');
     Route::post('/admin/directory/create', 'Admin\DirectoryController@create');
     Route::post('/admin/directory/update', 'Admin\DirectoryController@update');
-    Route::post('/admin/directory/destroy/{id}', 'Admin\DirectoryController@destroy');
+    Route::get('/admin/directory/destroy/{id}', 'Admin\DirectoryController@destroy');
 
 
   //    Страницы

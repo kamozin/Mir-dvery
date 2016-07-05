@@ -60,6 +60,7 @@ class NewsController extends Controller
 
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $extension = $file->getClientOriginalExtension();
+        $filename=TranslitController::str2url($filename);
         $filename = $filename . '-' . time() . '.' . $extension;
         $news->img = $filename;
 
@@ -165,22 +166,23 @@ class NewsController extends Controller
             return redirect()->back()->with('error', 'Тип файла запрещен');
         }
 
-        $category = News::find($request->input('id'));
+        $news = News::find($request->input('id'));
 
-        $photo_old = $category->img;
+        $photo_old = $news->img;
 
 
         $file = $request->file('file');
 
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $extension = $file->getClientOriginalExtension();
+        $filename=TranslitController::str2url($filename);
         $filename = $filename . '-' . time() . '.' . $extension;
-        $category->img = $filename;
+        $news->img = $filename;
 
-        if ($request->file('file')->move('gallery/category/', $filename)) {
+        if ($request->file('file')->move('gallery/news/', $filename)) {
 
             Storage::delete('gallery/news/' . $photo_old);
-            $category->save();
+            $news->save();
             return redirect('/admin/news');
 
         }
@@ -195,6 +197,10 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news=News::find($id);
+
+        $news->delete();
+
+        return redirect()->back();
     }
 }
