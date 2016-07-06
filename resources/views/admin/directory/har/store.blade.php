@@ -32,27 +32,24 @@
 
                         @endif
 
-                        <form id="demo-form2" enctype="multipart/form-data"  method="POST" action="/admin/directory/create" class="form-horizontal form-label-left">
+                        <form id="demo-form2" enctype="multipart/form-data"  method="POST" action="/admin/directory/characteristics/create" class="form-horizontal form-label-left">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="id_razdel" value="{{ $id }}">
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Наименование справочника или раздела <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Наименование характеристики <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="name" required="required" name="name" value="" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Справочники<span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tema">Фото<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="parent_id" class="form-control" id="parent_id">
-                                        <option value="0">Справочник</option>
-                                        @foreach($directory as $d)
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input id="tema" class="form-control col-md-7 col-xs-12" type="file" name="file">
+                                    </div>
 
-                                            <option value="{{$d->id}}">{{$d->name}}</option>
-
-                                        @endforeach
-                                    </select>
                                 </div>
                             </div>
 

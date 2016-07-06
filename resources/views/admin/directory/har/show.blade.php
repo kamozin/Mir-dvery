@@ -10,11 +10,13 @@
                     <div class="panel-heading">Акции</div>
 
                     <div class="panel-body">
-                        <a href="/admin/directory/store" class="btn btn-primary">Добавить справочник/раздел</a>
+                        <a href="/admin/directory/characteristics/{{$id}}/store" class="btn btn-primary">Добавить
+                            характеристику</a>
                     </div>
                     @if(session()->has('success'))
                         <div class="alert alert-success alert-dismissible fade in" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">×</span>
                             </button>
                             <strong>{{session()->get('success')}}</strong>
                         </div>
@@ -26,44 +28,45 @@
                             <thead>
                             <tr>
                                 <th>№ п/п</th>
-                                <th>Наименование справочнка или раздела</th>
+                                <th>фото</th>
+                                <th>Название</th>
                                 <th>Справочник</th>
-                                <th>Характеристики</th>
+                                <th>Раздел</th>
                                 <th>Редактировать</th>
                                 <th>Удалить</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($directory as $d)
+                            @foreach($har as $h)
                                 <tr>
-                                    <td>{{$d->id}}</td>
+                                    <td>{{$h->id}}</td>
                                     <td>
-                                        {{$d->name}}
+                                        <img src="/gallery/directory/{{$h->img}}" width="70" height="70">
                                     </td>
                                     <td>
-                                        @if($d->parent_id==0)
-                                        Справочник
-                                            @else
-                                            @foreach($directory as $dir)
-
-                                                @if($dir->id==$d->parent_id)
-
-                                                    {{$dir->name}}
-
-                                                    @endif
-                                                @endforeach
-
-                                        @endif
+                                        {{$h->name}}
                                     </td>
                                     <td>
-                                        @if($d->parent_id==0)
-                                            Характеристики доступны только в разделе справочника
-                                            @else
-                                        <a href="/admin/directory/characteristics/{{$d->id}}">Характеристики</a>
+                                        @foreach($directory as $d)
+                                            @if($d->id==$h->id_directory)
+                                                {{$d->name}}
                                             @endif
+
+                                        @endforeach
                                     </td>
-                                    <td><a href="/admin/actions/edit/{{$d->id}}">Редактировать</a></td>
-                                    <td><a href="/admin/actions/destroy/{{$d->id}}">Удалить</a></td>
+                                    <td>
+
+                                        @foreach($directory as $d)
+                                            @if($d->id==$h->id_razdel)
+                                                {{$d->name}}
+                                            @endif
+
+                                        @endforeach
+
+                                    </td>
+
+                                    <td><a href="/admin/actions/edit/{{$h->id}}">Редактировать</a></td>
+                                    <td><a href="/admin/actions/destroy/{{$h->id}}">Удалить</a></td>
 
                                 </tr>
                             @endforeach

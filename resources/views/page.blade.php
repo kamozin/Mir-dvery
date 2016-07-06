@@ -7,8 +7,10 @@
     @stop
 
 @section('content')
-
+    <div id="content">
+        <h1>{{$page['name']}}</h1>
 {!! $page['text'] !!}
+    </div>
 
     @stop
 

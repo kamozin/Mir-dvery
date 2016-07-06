@@ -15,6 +15,9 @@
         <!-- Верхнее меню -->
         <ul>
             <li>
+                <a href="/" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Главная</a>
+            </li>
+            <li>
                 <a href="/page/about" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>О компании</a>
             </li>
             <li>

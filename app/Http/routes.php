@@ -78,7 +78,11 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::post('/admin/directory/create', 'Admin\DirectoryController@create');
     Route::post('/admin/directory/update', 'Admin\DirectoryController@update');
     Route::get('/admin/directory/destroy/{id}', 'Admin\DirectoryController@destroy');
+//Характеристики к справочникам
 
+    Route::get('/admin/directory/characteristics/{id}/store', 'Admin\DirectoryController@StoreHar');
+    Route::get('/admin/directory/characteristics/{id}', 'Admin\DirectoryController@ShowHar');
+    Route::post('/admin/directory/characteristics/create', 'Admin\DirectoryController@CreateHar');
 
   //    Страницы
     Route::get('/admin/page', 'Admin\PageController@index');
