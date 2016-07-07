@@ -67,7 +67,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::get('/admin/products', 'Admin\ProductsController@index');
     Route::get('/admin/products/store', 'Admin\ProductsController@store');
     Route::get('/admin/products/edit/{id}', 'Admin\ProductsController@edit');
-    Route::post('/admin/products/create', 'Admin\ProductsController@create');
+    Route::post('/admin/products/create', 'Admin\ProductsController@productCreate');
     Route::post('/admin/products/update', 'Admin\ProductsController@update');
     Route::get('/admin/products/destroy/{id}', 'Admin\ProductsController@destroy');
 

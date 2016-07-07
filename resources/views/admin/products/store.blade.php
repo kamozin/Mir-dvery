@@ -94,7 +94,7 @@
                                 </label>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="parent_id" class="form-control" id="parent_id">
+                                    <select name="id_category" class="form-control" id="parent_id">
                                         @foreach($category as $c)
 
                                             <option value="{{$c->id}}">{{$c->name}}</option>
@@ -175,9 +175,10 @@
                                                                      src="/gallery/directory/{{$r['img']}}" alt="">
                                                                 {{$r['name']}}
                                                             </label>
-                                                            </div>
+
+
                                                         @endif
-                                                                   </div></div>
+                                                            </div></div></div>
                                                     @endforeach
                                                     </div>
                                                     @endforeach
