@@ -131,58 +131,36 @@
 
                             <h1>Справочники</h1>
                             {{--{{dd($dir)}}--}}
+                            <?php $i = 0; ?>
                             @foreach($dir as $d)
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="x_panel">
-                                            <div class="x_title">
-                                                <h2><h2 style="color: darkred;">{{$d['name']}}</h2></h2>
-                                                <ul class="nav navbar-right panel_toolbox">
-                                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                    </li>
 
-                                                </ul>
-                                                <div class="clearfix"></div>
-                                            </div>
+                                             <h2 style="color: darkred;">{{$d['name']}}</h2>
+
                                             @foreach($d['razdel'] as $razdel)
-                                                <div class="x_content">
-
-                                                    <div class="row">
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="x_panel">
-                                                                <div class="x_title">
-                                                                    <h2> <h2>{{$razdel['name']}}</h2></h2>
-                                                                    <ul class="nav navbar-right panel_toolbox">
-                                                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                        </li>
-
-                                                                    </ul>
-                                                                    <div class="clearfix"></div>
-                                                                </div>
-
+                                                <h2>{{$razdel['name']}}</h2>
 
 
                                                     @foreach($razdel['properties'] as $r)
-                                                                    {{--<div class="x_content">--}}
+
                                                         @if(empty($r))
 
                                                             <p>Нет свойств</p>
                                                         @else
-                                                            <label for="">
-                                                                <input type="checkbox" name="directory[]"
+                                                            <label class="" for="id_{{$i}}">
+                                                                <input id="id_{{$i}}"  type="checkbox" name="directory[]"
                                                                        value="{{$r['id']}}">
                                                                 <img width="50" height="50"
                                                                      src="/gallery/directory/{{$r['img']}}" alt="">
                                                                 {{$r['name']}}
                                                             </label>
 
-
+                                                                            <?php $i++; ?>
                                                         @endif
-                                                            </div></div></div>
+
                                                     @endforeach
-                                                    </div>
+
                                                     @endforeach
-                                            </div></div></div>
+
                                                     @endforeach
 
                                                     <div class="ln_solid"></div>
