@@ -77,6 +77,7 @@ class ProductsController extends Controller
 
         $product=new Products();
 
+//        dd($request->input('directory'));
 
         $product->name=$request->input('name');
         $product->url=TranslitController::str2url($request->name);
@@ -120,6 +121,113 @@ class ProductsController extends Controller
         $product->save();
 
         return redirect('/admin/products');
+
+    }
+
+
+    public function edit(Request $request){
+
+            $id=$request->id;
+
+        $product=Products::find($id);
+
+
+
+        $category=Category::all();
+
+//        $product = $product[0]['original'];
+        $directory = Directory::where('parent_id', '=', 0)->get();
+        $razdel = Directory::where('parent_id', '>', 0)->get();
+        $properties = explode(',', $product['original']['properties']);
+        $properties_arr = [];
+
+//        Тащим информацию о характеристиках
+        for ($i = 0; $i < count($properties); $i++) {
+
+            $char = characteristics::where('id', '=', $properties[$i])->get();
+//                dd($char[0]['original']);
+            $properties_arr[$i] = [];
+            $properties_arr[$i] = array_add($properties_arr[$i], 'har', $char[0]['original']);
+
+        }
+
+//        Оставляем только нужные справочники
+
+//        Массив справочников отобранный для вывода
+        $directory_arr = [];
+        for ($i = 0; $i < count($directory); $i++) {
+
+            for ($j = 0; $j < count($properties_arr); $j++) {
+
+                if ($directory[$i]['original']['id'] == $properties_arr[$j]['har']['id_directory']) {
+
+                    $directory_arr[$i] = [];
+
+                    $directory_arr[$i] = array_add($directory_arr[$i], 'directory', $directory[$i]['original']);
+                } else {
+
+                }
+            }
+        }
+
+
+
+//        Массив раздела отобранный для вывода
+        $razdel_arr = [];
+        for ($i = 0; $i < count($razdel); $i++) {
+
+            for ($j = 0; $j < count($properties_arr); $j++) {
+
+                if ($razdel[$i]['original']['id'] == $properties_arr[$j]['har']['id_razdel']) {
+
+                    $razdel_arr[$i] = [];
+                    $razdel_arr[$i] = array_add($razdel_arr[$i], 'razdel', $razdel[$i]['original']);
+                } else {
+
+
+                }
+            }
+        }
+
+
+        $spravochniki = [];
+        for ($i = 0; $i < count($directory_arr); $i++) {
+//            Добавляем в массив справочник
+            $spravochniki[$i] = [];
+            $spravochniki[$i] = array_add($spravochniki[$i], 'directory', $directory_arr[$i]['directory']);
+            for ($j = 0; $j < count($razdel_arr); $j++) {
+
+
+                if ($spravochniki[$i]['directory']['id'] == $razdel_arr[0]['razdel']['parent_id']) {
+                    $spravochniki[$i]['directory']['razdel'][$j] = [];
+                    $spravochniki[$i]['directory']['razdel'][$j] = $razdel_arr[0]['razdel'];
+                    unset($razdel_arr[0]);
+                    sort($razdel_arr);
+                }
+            }
+        }
+
+        for ($i = 0; $i < count($spravochniki); $i++) {
+            $count = count($spravochniki[$i]['directory']['razdel']);
+            for ($j = 0; $j < $count; $j++) {
+                for ($k = 0; $k < count($properties_arr); $k++) {
+
+                    if ($spravochniki[$i]['directory']['razdel'][$j]['id'] == $properties_arr[0]['har']['id_razdel']) {
+
+                        $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = [];
+                        $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = array_add($spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k], 'harakt', $properties_arr[0]['har']);
+
+                        unset($properties_arr[0]);
+                        sort($properties_arr);
+//                        dd($properties_arr);
+                    }
+                }
+            }
+        }
+//dd($spravochniki);
+
+        return view('admin.products.edit', ['product'=>$product, 'category'=>$category, 'dir'=>$spravochniki]);
+
 
     }
 

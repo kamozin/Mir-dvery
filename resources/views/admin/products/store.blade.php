@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-
-
+    <link rel="stylesheet" type="text/css" href="/includes/css/nustyle.css">
 @stop
 
 @section('content')
@@ -128,41 +127,48 @@
                                     <input id="tema" class="form-control col-md-7 col-xs-12" type="file" name="files">
                                 </div>
                             </div>
+                                <div class="col-md-12">
 
-                            <h1>Справочники</h1>
-                            {{--{{dd($dir)}}--}}
-                            <?php $i = 0; ?>
-                            @foreach($dir as $d)
+                                    <h1>Справочники</h1>
+                                    {{--{{dd($dir)}}--}}
+                                    <?php $i = 0; ?>
+                                    @foreach($dir as $d)
 
-                                             <h2 style="color: darkred;">{{$d['name']}}</h2>
+                                        <h2 style="color: darkred;">{{$d['name']}}</h2>
 
-                                            @foreach($d['razdel'] as $razdel)
-                                                <h2>{{$razdel['name']}}</h2>
+                                        @foreach($d['razdel'] as $razdel)
+                                            <div class="col-md-12">
+                                            <h2>{{$razdel['name']}}</h2>
 
 
-                                                    @foreach($razdel['properties'] as $r)
+                                            @foreach($razdel['properties'] as $r)
 
-                                                        @if(empty($r))
+                                                @if(empty($r))
 
-                                                            <p>Нет свойств</p>
-                                                        @else
-                                                            <label class="" for="id_{{$i}}">
-                                                                <input id="id_{{$i}}"  type="checkbox" name="directory[]"
-                                                                       value="{{$r['id']}}">
-                                                                <img width="50" height="50"
-                                                                     src="/gallery/directory/{{$r['img']}}" alt="">
-                                                                {{$r['name']}}
-                                                            </label>
+                                                    <p>Нет свойств</p>
+                                                @else
+                                                    <div class="col-md-2">
+                                                        <label for="id_{{$i}}" class="fest">
+                                                            <input type="checkbox"  id="id_{{$i}}" name="directory[]" value="{{$r['id']}}">
+                                                             <img  width="50" height="50"   src="/gallery/directory/{{$r['img']}}" alt="">
+                                                            <p> {{$r['name']}}</p>
+                                                        </label>
 
-                                                                            <?php $i++; ?>
-                                                        @endif
+                                                    </div>
 
-                                                    @endforeach
 
-                                                    @endforeach
+                                                    <?php $i++; ?>
+                                                @endif
 
-                                                    @endforeach
+                                            @endforeach
+                                        </div>
+                                        @endforeach
 
+                                    @endforeach
+
+
+
+                                </div>
                                                     <div class="ln_solid"></div>
                                                     <div class="form-group">
                                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -190,6 +196,14 @@
 
 
 @section('footer')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.fest input').click(function () {
+                $(this).parent().toggleClass('click');
+            });
+        });
 
+
+    </script>
 
 @stop

@@ -78,7 +78,7 @@
 
 <div class="catalog_prodykt">
     <div class="catalog">
-        <h2>Элит</h2>
+        <h2>{{$category[0]['name']}}</h2>
         @if(count($products)>0)
         @foreach($products as $p)
         <div id="catalog_catalog">

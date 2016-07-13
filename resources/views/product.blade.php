@@ -1,6 +1,12 @@
 @extends('app')
 
 
+        @section('header')
+
+            <link rel="stylesheet" type="text/css" href="/includes/css/magnific-popup.css">
+
+        @stop
+
 
 @section('content')
 
@@ -122,8 +128,89 @@
 
 </div>
 
+@stop
+
+@section('footer')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.fade_dop').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: false,
+                infinite: true,
+                speed: 1000,
+                fade: false,
+                cssEase: 'linear'
+            });
+        });
+    </script>
+
+    <script type="text/javascript" src="/includes/js/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="/includes/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('.slaider').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                mainClass: 'mfp-with-zoom mfp-img-mobile',
+
+                gallery: {
+                    enabled: true
+                }
+
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
 
 
+            $('.zoom-gallery1').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                mainClass: 'mfp-with-zoom mfp-img-mobile',
+                image: {
+                    verticalFit: true,
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300, // don't foget to change the duration also in CSS
+                    opener: function(element) {
+                        return element.find('img');
+                    }
+                }
+
+            });
+        });
+    </script>
+
+
+
+
+    <script type="text/javascript" src="/includes/js/scriptbreaker-multiple-accordion-1.js"></script>
+
+    <script language="javascript">
+        $(document).ready(function() {
+            $(".topnav").accordion({
+                accordion:true,
+                speed: 500,
+                closedSign: '&#x25BA',
+                openedSign: '▼'
+            });
+        });
+    </script>
 
 
 

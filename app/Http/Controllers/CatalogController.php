@@ -116,19 +116,24 @@ class CatalogController extends Controller
             }
         }
 
-//        dd($properties_arr);
+
         $spravochniki = [];
         for ($i = 0; $i < count($directory_arr); $i++) {
 //            Добавляем в массив справочник
             $spravochniki[$i] = [];
             $spravochniki[$i] = array_add($spravochniki[$i], 'directory', $directory_arr[$i]['directory']);
             for ($j = 0; $j < count($razdel_arr); $j++) {
-                $spravochniki[$i]['directory']['razdel'][$j] = [];
-                if ($spravochniki[$i]['directory']['id'] == $razdel_arr[$j]['razdel']['parent_id']) {
-                    $spravochniki[$i]['directory']['razdel'][$j] = $razdel_arr[$j]['razdel'];
+
+
+                if ($spravochniki[$i]['directory']['id'] == $razdel_arr[0]['razdel']['parent_id']) {
+                    $spravochniki[$i]['directory']['razdel'][$j] = [];
+                    $spravochniki[$i]['directory']['razdel'][$j] = $razdel_arr[0]['razdel'];
+                    unset($razdel_arr[0]);
+                    sort($razdel_arr);
                 }
             }
         }
+
         for ($i = 0; $i < count($spravochniki); $i++) {
             $count = count($spravochniki[$i]['directory']['razdel']);
             for ($j = 0; $j < $count; $j++) {

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>no_chek</title> <!-- Название страницы -->
+	<meta charset="utf-8"> <!-- Распознание текста -->
+	<link rel="stylesheet" type="text/css" href="nustyle.css"> <!-- Стили к сайту -->
+
+<style>
+
+.produckt {
+	width: 50%;
+	cursor: pointer;
+}
+
+
+label {
+		
+	width: 500px;
+	height: 500px;
+}
+
+input {
+	display: none;
+	width: 50px;
+	height: 50px;
+	border: 12px solid #000;
+	cursor: pointer;
+}
+
+input [type="checkbox"]:checked + label {
+	border: 2px solid green;
+}
+
+.fest {
+
+	width: 500px;
+		height: 500px;
+	cursor: pointer;
+}
+
+.fest img{
+	
+		width: 50px;
+		height: 50px;
+}
+
+.click img {
+	border: 5px solid green;
+}
+
+
+ </style>
+
+
+
+
+	</head>
+<body>
+<header>
+
+
+	<label class="fest">
+			<input type="checkbox" name="checkbox">
+		<img src="image/produkt/1.png">
+		<p> очень дверь </p>
+	</label>
+
+<label class="fest">
+			<input type="checkbox" name="checkbox">
+		<img src="image/produkt/1.png">
+		<p> очень дверь </p>
+	</label>
+
+	<label class="fest">
+			<input type="checkbox" name="checkbox">
+		<img src="image/produkt/1.png">
+		<p> очень дверь </p>
+	</label>
+
+	<label class="fest">
+			<input type="checkbox" name="checkbox">
+		<img src="image/produkt/1.png">
+		<p> очень дверь </p>
+	</label>
+
+
+
+
+</header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+	$('.fest input').click(function () {
+		$(this).parent().toggleClass('click');
+		});
+	});
+
+
+  </script>  
+
+	
+
+</script>
+</body>
+</html>
