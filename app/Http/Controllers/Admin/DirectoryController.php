@@ -16,7 +16,7 @@ class DirectoryController extends Controller
 
 
 public function  store(){
-    $directory=Directory::all();
+    $directory=Directory::where('parent_id', '=', 0)->get();
     return view('admin.directory.store', ['directory'=>$directory]);
 }
 

@@ -1,8 +1,8 @@
 ﻿--
 -- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 7.1.13.0
 -- Домашняя страница продукта: http://www.devart.com/ru/dbforge/mysql/studio
--- Дата скрипта: 06.07.2016 18:04:36
--- Версия сервера: 5.5.5-10.1.9-MariaDB
+-- Дата скрипта: 12.07.2016 10:09:42
+-- Версия сервера: 5.5.47-0+deb8u1
 -- Версия клиента: 4.1
 --
 
@@ -70,8 +70,8 @@ CREATE TABLE category (
   PRIMARY KEY (id)
 )
 ENGINE = INNODB
-AUTO_INCREMENT = 3
-AVG_ROW_LENGTH = 8192
+AUTO_INCREMENT = 28
+AVG_ROW_LENGTH = 16384
 CHARACTER SET utf8
 COLLATE utf8_unicode_ci;
 
@@ -90,7 +90,7 @@ CREATE TABLE directory (
   PRIMARY KEY (id)
 )
 ENGINE = INNODB
-AUTO_INCREMENT = 10
+AUTO_INCREMENT = 18
 AVG_ROW_LENGTH = 2048
 CHARACTER SET utf8
 COLLATE utf8_unicode_ci;
@@ -112,8 +112,8 @@ CREATE TABLE im (
   PRIMARY KEY (id)
 )
 ENGINE = INNODB
-AUTO_INCREMENT = 4
-AVG_ROW_LENGTH = 5461
+AUTO_INCREMENT = 35
+AVG_ROW_LENGTH = 8192
 CHARACTER SET utf8
 COLLATE utf8_unicode_ci;
 
@@ -126,7 +126,7 @@ CREATE TABLE migrations (
   batch INT(11) NOT NULL
 )
 ENGINE = INNODB
-AVG_ROW_LENGTH = 2048
+AVG_ROW_LENGTH = 2340
 CHARACTER SET utf8
 COLLATE utf8_unicode_ci;
 
@@ -193,6 +193,35 @@ CHARACTER SET utf8
 COLLATE utf8_unicode_ci;
 
 --
+-- Описание для таблицы products
+--
+DROP TABLE IF EXISTS products;
+CREATE TABLE products (
+  id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  url VARCHAR(255) NOT NULL,
+  price VARCHAR(255) NOT NULL,
+  text TEXT NOT NULL,
+  keywords VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  id_category INT(11) NOT NULL,
+  properties VARCHAR(255) NOT NULL,
+  img_one VARCHAR(255) NOT NULL,
+  img_too VARCHAR(255) NOT NULL,
+  remember_token VARCHAR(100) DEFAULT NULL,
+  deleted_at TIMESTAMP NULL DEFAULT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 3
+AVG_ROW_LENGTH = 8192
+CHARACTER SET utf8
+COLLATE utf8_unicode_ci;
+
+--
 -- Описание для таблицы users
 --
 DROP TABLE IF EXISTS users;
@@ -208,7 +237,8 @@ CREATE TABLE users (
   UNIQUE INDEX users_email_unique (email)
 )
 ENGINE = INNODB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 6
+AVG_ROW_LENGTH = 3276
 CHARACTER SET utf8
 COLLATE utf8_unicode_ci;
 
@@ -223,8 +253,32 @@ INSERT INTO actions VALUES
 -- Вывод данных для таблицы category
 --
 INSERT INTO category VALUES
-(1, 'Анабель 1', 'anabel-1', '0', 'bbb', 'ремонт кровли-1467716438.jpg', NULL, NULL, '2016-07-04 11:08:11', '2016-07-05 11:00:38'),
-(2, 'kamozin', 'kamozin', '0', 'aaaa', 'uAQR6K4MXyQ-1467708789.jpg', NULL, NULL, '2016-07-04 13:34:40', '2016-07-05 08:53:09');
+(1, 'Входные двери', 'vhodnye-dveri', '0', '123', ' двери-1467986827.png', NULL, NULL, '2016-07-04 11:08:11', '2016-07-08 14:07:07'),
+(3, 'Межкомнатные двери', 'mezhkomnatnye-dveri', '0', 'уцаак ка укцу куц', ' двери-1467986843.jpg', NULL, NULL, '2016-07-07 06:46:41', '2016-07-08 14:07:23'),
+(4, 'Художественная ковка', 'hudozhestvennaya-kovka', '0', '', '-1467986895.jpg', NULL, NULL, '2016-07-08 14:08:15', '2016-07-08 14:08:15'),
+(5, 'Межкомнатные перегородки', 'mezhkomnatnye-peregorodki', '0', '', '-1467987028.jpg', NULL, NULL, '2016-07-08 14:10:28', '2016-07-08 14:10:28'),
+(6, 'Отделка откосов', 'otdelka-otkosov', '0', '', ' откосов-1467987049.jpg', NULL, NULL, '2016-07-08 14:10:49', '2016-07-08 14:10:49'),
+(7, 'Белые межкомнатные двери', 'belye-mezhkomnatnye-dveri', '0', '', '-1467987091.jpg', NULL, NULL, '2016-07-08 14:11:31', '2016-07-08 14:11:31'),
+(8, 'Элит', 'elit', '1', '', '-1467987359.png', NULL, NULL, '2016-07-08 14:15:59', '2016-07-08 14:15:59'),
+(9, 'Стандарт', 'standart', '1', '', '-1467987381.png', NULL, NULL, '2016-07-08 14:16:21', '2016-07-08 14:16:21'),
+(10, 'Нестандарт', 'nestandart', '1', '', '-1467987403.png', NULL, NULL, '2016-07-08 14:16:43', '2016-07-08 14:16:43'),
+(11, 'Тамбурная', 'tamburnaya', '10', '', '-1467987497.jpg', NULL, NULL, '2016-07-08 14:18:17', '2016-07-08 14:18:17'),
+(12, 'Противопожарная', 'protivopozharnaya', '10', '', '-1467987535.jpg', NULL, NULL, '2016-07-08 14:18:55', '2016-07-08 14:18:55'),
+(13, 'Подъездная', 'pod-ezdnaya', '10', '', '-1467987564.jpg', NULL, NULL, '2016-07-08 14:19:24', '2016-07-08 14:19:24'),
+(14, 'Дверь в кассу', 'dver-v-kassu', '10', '', '-1467987605.jpg', NULL, NULL, '2016-07-08 14:20:05', '2016-07-08 14:20:05'),
+(15, 'Дверь в оружейную', 'dver-v-oruzheynuyu', '10', '', '-1467987644.jpg', NULL, NULL, '2016-07-08 14:20:44', '2016-07-08 14:20:44'),
+(16, 'Дверь в лифтерную', 'dver-v-lifternuyu', '10', '', '-1467987677.jpg', NULL, NULL, '2016-07-08 14:21:17', '2016-07-08 14:21:17'),
+(17, 'Дверь в электрощитовую', 'dver-v-elektroschitovuyu', '10', '', '-1467987699.jpg', NULL, NULL, '2016-07-08 14:21:39', '2016-07-08 14:21:39'),
+(18, 'Двери хозяйственного назначения', 'dveri-hozyaystvennogo-naznacheniya', '10', '', '-1467987753.jpg', NULL, NULL, '2016-07-08 14:22:33', '2016-07-08 14:22:33'),
+(19, 'Варадор', 'varador', '3', '', '-1467988111.png', NULL, NULL, '2016-07-08 14:28:31', '2016-07-08 14:28:31'),
+(20, 'Владимирская Фабрика Дверей', 'vladimirskaya-fabrika-dverey', '3', '', ' фаьрика дверей-1467988139.jpg', NULL, NULL, '2016-07-08 14:28:59', '2016-07-08 14:28:59'),
+(21, 'Дариано', 'dariano', '3', '', '-1467988160.png', NULL, NULL, '2016-07-08 14:29:20', '2016-07-08 14:29:20'),
+(22, 'Луидор', 'luidor', '3', '', '-1467988178.png', NULL, NULL, '2016-07-08 14:29:38', '2016-07-08 14:29:38'),
+(23, 'Мариам', 'mariam', '3', '', '-1467988198.png', NULL, NULL, '2016-07-08 14:29:58', '2016-07-08 14:29:58'),
+(24, 'Мебель массив', 'mebel-massiv', '3', '', ' массив-1467988216.png', NULL, NULL, '2016-07-08 14:30:16', '2016-07-08 14:30:16'),
+(25, 'Океан', 'okean', '3', '', '-1467988235.png', NULL, NULL, '2016-07-08 14:30:35', '2016-07-08 14:30:35'),
+(26, 'Практика', 'praktika', '3', '', '-1467988254.png', NULL, NULL, '2016-07-08 14:30:54', '2016-07-08 14:30:54'),
+(27, 'Фурнитура Zambrotto', 'furnitura-zambrotto', '3', '', ' zambrotto-1467988279.png', NULL, NULL, '2016-07-08 14:31:19', '2016-07-08 14:31:19');
 
 -- 
 -- Вывод данных для таблицы directory
@@ -237,7 +291,15 @@ INSERT INTO directory VALUES
 (6, 'Цвета пленок', 0, NULL, NULL, '2016-07-06 10:47:35', '2016-07-06 10:47:35'),
 (7, 'ПВХ', 6, NULL, NULL, '2016-07-06 10:47:50', '2016-07-06 10:47:50'),
 (8, 'Винорит', 6, NULL, NULL, '2016-07-06 10:48:03', '2016-07-06 10:48:03'),
-(9, 'dfkldfjklsldfs', 6, NULL, NULL, '2016-07-06 11:19:51', '2016-07-06 11:19:51');
+(9, 'dfkldfjklsldfs', 6, NULL, NULL, '2016-07-06 11:19:51', '2016-07-06 11:19:51'),
+(10, 'Цвета порошкового напыления', 0, NULL, NULL, '2016-07-11 10:42:02', '2016-07-11 10:42:02'),
+(11, 'Шагрень', 0, NULL, NULL, '2016-07-11 10:42:49', '2016-07-11 10:42:49'),
+(12, 'Шагрень', 10, NULL, NULL, '2016-07-11 10:43:12', '2016-07-11 10:43:12'),
+(13, 'Крокодил', 10, NULL, NULL, '2016-07-11 10:43:42', '2016-07-11 10:43:42'),
+(14, 'Крокодил', 10, NULL, NULL, '2016-07-11 10:45:21', '2016-07-11 10:45:21'),
+(15, 'Замки', 0, NULL, NULL, '2016-07-11 11:02:31', '2016-07-11 11:02:31'),
+(16, 'Верхние замки', 15, NULL, NULL, '2016-07-11 11:02:52', '2016-07-11 11:02:52'),
+(17, 'Нижние замки', 15, NULL, NULL, '2016-07-11 11:03:10', '2016-07-11 11:03:10');
 
 -- 
 -- Вывод данных для таблицы im
@@ -245,7 +307,38 @@ INSERT INTO directory VALUES
 INSERT INTO im VALUES
 (1, 'Фрезировка 1', 'rem_krov-1467798398.jpg', 1, 2, NULL, NULL, '2016-07-06 09:46:38', '2016-07-06 09:46:38'),
 (2, 'Фрезировка 2', 'rem_krov-1467799633.jpg', 1, 2, NULL, NULL, '2016-07-06 10:07:13', '2016-07-06 10:07:13'),
-(3, 'jklfdjl', 'nadstroyka-zhilogo-uteplennogo-etazha-1467804277.jpg', 1, 4, NULL, NULL, '2016-07-06 11:24:37', '2016-07-06 11:24:37');
+(3, 'jklfdjl', 'nadstroyka-zhilogo-uteplennogo-etazha-1467804277.jpg', 1, 4, NULL, NULL, '2016-07-06 11:24:37', '2016-07-06 11:24:37'),
+(4, 'Венге светлый', 'iloveimg_com-1-1468233268.jpg', 6, 7, NULL, NULL, '2016-07-11 10:34:28', '2016-07-11 10:34:28'),
+(5, 'Дуб антик', 'iloveimg_com-2-1468233300.jpg', 6, 7, NULL, NULL, '2016-07-11 10:35:00', '2016-07-11 10:35:00'),
+(6, 'Ольха', 'iloveimg_com-3-1468233328.jpg', 6, 7, NULL, NULL, '2016-07-11 10:35:28', '2016-07-11 10:35:28'),
+(7, 'Орех темный', 'iloveimg_com-4-1468233357.jpg', 6, 7, NULL, NULL, '2016-07-11 10:35:57', '2016-07-11 10:35:57'),
+(8, 'Дикий дуб', 'iloveimg_com-5-1468233437.jpg', 6, 8, NULL, NULL, '2016-07-11 10:37:17', '2016-07-11 10:37:17'),
+(9, 'Белый дуб', 'iloveimg_com-6-1468233457.jpg', 6, 8, NULL, NULL, '2016-07-11 10:37:37', '2016-07-11 10:37:37'),
+(10, 'Дуб седой', 'iloveimg_com-7-1468233480.jpg', 6, 8, NULL, NULL, '2016-07-11 10:38:00', '2016-07-11 10:38:00'),
+(11, 'Золотой дуб', 'iloveimg_com-8-1468233506.jpg', 6, 8, NULL, NULL, '2016-07-11 10:38:26', '2016-07-11 10:38:26'),
+(12, 'Темная вишня', 'iloveimg_com-1468233531.jpg', 6, 8, NULL, NULL, '2016-07-11 10:38:51', '2016-07-11 10:38:51'),
+(13, 'Темный орех', 'iloveimg_com-0-1468233553.jpg', 6, 8, NULL, NULL, '2016-07-11 10:39:13', '2016-07-11 10:39:13'),
+(14, 'Белая', 'iloveimg_com-1468233850.jpg', 10, 12, NULL, NULL, '2016-07-11 10:44:10', '2016-07-11 10:44:10'),
+(15, 'Серая', 'iloveimg_com-0-1468233866.jpg', 10, 12, NULL, NULL, '2016-07-11 10:44:26', '2016-07-11 10:44:26'),
+(16, 'Черная', 'iloveimg_com-1-1468233886.jpg', 10, 12, NULL, NULL, '2016-07-11 10:44:46', '2016-07-11 10:44:46'),
+(17, 'Коричневая', 'iloveimg_com-2-1468233905.jpg', 10, 12, NULL, NULL, '2016-07-11 10:45:05', '2016-07-11 10:45:05'),
+(18, 'Коричневый', 'iloveimg_com-3-1468233962.jpg', 10, 13, NULL, NULL, '2016-07-11 10:46:02', '2016-07-11 10:46:02'),
+(19, 'Guardian 3211 (под цилиндр)', 'iloveimg_com-0-1468235064.jpg', 15, 16, NULL, NULL, '2016-07-11 11:04:24', '2016-07-11 11:04:24'),
+(20, 'Меттем 06 4-х ригельный', 'iloveimg_com-1-1468235108.jpg', 15, 16, NULL, NULL, '2016-07-11 11:05:08', '2016-07-11 11:05:08'),
+(21, 'Меттем 08 3-х ригельный', 'iloveimg_com-2-1468235154.jpg', 15, 16, NULL, NULL, '2016-07-11 11:05:54', '2016-07-11 11:05:54'),
+(22, 'Сам ЗВ-8У.1', 'iloveimg_com-1468235197.jpg', 15, 16, NULL, NULL, '2016-07-11 11:06:37', '2016-07-11 11:06:37'),
+(23, 'Guardian  3001', 'guardian--3001-1468235791.jpg', 15, 17, NULL, NULL, '2016-07-11 11:16:31', '2016-07-11 11:16:31'),
+(24, 'APECS противопожарный, ручка на планке черная', 'iloveimg_com-3-1468235842.jpg', 15, 17, NULL, NULL, '2016-07-11 11:17:22', '2016-07-11 11:17:22'),
+(25, 'Меттем комбинированный (двухключевой)', 'iloveimg_com-1468235884.jpg', 15, 17, NULL, NULL, '2016-07-11 11:18:04', '2016-07-11 11:18:04'),
+(26, 'Сам под цилиндр, ручка фалевая', 'iloveimg_com-2-1468236212.jpg', 15, 17, NULL, NULL, '2016-07-11 11:23:32', '2016-07-11 11:23:32'),
+(27, 'Меттем под сувальдный ключ с ночной задвижкой', 'iloveimg_com-1-1468236455.jpg', 15, 17, NULL, NULL, '2016-07-11 11:27:35', '2016-07-11 11:27:35'),
+(28, 'Меттем под личинку', 'iloveimg_com-0-1468236601.jpg', 15, 17, NULL, NULL, '2016-07-11 11:30:01', '2016-07-11 11:30:01'),
+(29, 'zv4-713.0.0_n', 'iloveimg_com-1468236782.jpg', 15, 17, NULL, NULL, '2016-07-11 11:33:02', '2016-07-11 11:33:02'),
+(30, 'Duble', 'duble-1468238416.jpg', 1, 2, NULL, NULL, '2016-07-11 12:00:16', '2016-07-11 12:00:16'),
+(31, 'Festival', 'festival-1468238436.jpg', 1, 2, NULL, NULL, '2016-07-11 12:00:36', '2016-07-11 12:00:36'),
+(32, 'G-3', 'g-3-1468238450.jpg', 1, 2, NULL, NULL, '2016-07-11 12:00:50', '2016-07-11 12:00:50'),
+(33, 'Petr', 'petr-1468238469.jpg', 1, 2, NULL, NULL, '2016-07-11 12:01:09', '2016-07-11 12:01:09'),
+(34, 'Sfinx', 'sfinx-1468238484.jpg', 1, 2, NULL, NULL, '2016-07-11 12:01:24', '2016-07-11 12:01:24');
 
 -- 
 -- Вывод данных для таблицы migrations
@@ -259,7 +352,8 @@ INSERT INTO migrations VALUES
 ('2016_05_25_123001_create_news', 3),
 ('2016_05_25_123010_create_actions', 3),
 ('2016_07_05_071838_CreateDirectory', 4),
-('2016_07_06_085134_CreateHareckteristic', 5);
+('2016_07_06_085134_CreateHareckteristic', 5),
+('2016_07_06_144648_CreateProducts', 6);
 
 -- 
 -- Вывод данных для таблицы news
@@ -283,13 +377,21 @@ INSERT INTO page VALUES
 -- Таблица dvery.password_resets не содержит данных
 
 -- 
+-- Вывод данных для таблицы products
+--
+INSERT INTO products VALUES
+(1, 'Дверь', 'dver', '111', '  вавыа выа вы авыа ', 'олвыаоа лвоа ', ' вловалыо алд', 'йв ололы', 1, '1,2,3', 'nadstroyka-zhilogo-uteplennogo-etazha-1467872746.jpg', 'krov_kluch-1467872746.png', NULL, NULL, '2016-07-07 06:25:46', '2016-07-07 06:25:46'),
+(2, 'Дверь', 'dver', '111', '  вавыа выа вы авыа ', 'олвыаоа лвоа ', ' вловалыо алд', 'йв ололы', 1, '1,2,3', 'nadstroyka-zhilogo-uteplennogo-etazha-1467873387.jpg', 'krov_kluch-1467873387.png', NULL, NULL, '2016-07-07 06:36:27', '2016-07-07 06:36:27');
+
+-- 
 -- Вывод данных для таблицы users
 --
 INSERT INTO users VALUES
 (1, 'kamozin', 'hrolenkov@yandex.ru', '$2y$10$CrQLXixJsqsjj9VwK2.FVevOR6p01GDo2szKcfh.yu2PpsTmZAcB2', NULL, '2016-05-24 12:06:38', '2016-05-24 12:06:38'),
 (2, 'Иван Иванов', 'hr@yandex.ru', '$2y$10$ihUzxK7hFILAqJcHN0KU/OrSjI.X9q.Qcygg2SP/rYpD6apEFoQxG', NULL, '2016-05-25 12:03:28', '2016-05-25 12:03:28'),
 (3, 'Roman Khrolenkov', 'hrolenkov1111@yandex.ru', '$2y$10$5pczLPdeayvdqfYpQx/sxO1Lj2E1KnI29BnAOg/KPrvOkkZ02JZ/G', NULL, '2016-07-01 09:04:26', '2016-07-01 09:04:26'),
-(4, 'Roman Khrolenkov1', 'hrolenkov1121@yandex.ru', '$2y$10$ZyRBbimwh/bX1w/trw32gOIE2lLnxN9x.jTc61M1naHfGPDWt4/fi', NULL, '2016-07-04 07:18:35', '2016-07-04 07:18:35');
+(4, 'Roman Khrolenkov1', 'hrolenkov1121@yandex.ru', '$2y$10$ZyRBbimwh/bX1w/trw32gOIE2lLnxN9x.jTc61M1naHfGPDWt4/fi', NULL, '2016-07-04 07:18:35', '2016-07-04 07:18:35'),
+(5, 'Иван', 'ivan@dynamicweb.su', '$2y$10$GM0PoUJk5BGKXzDRhdVyoOZlFfJgkrun.jOkBecL.2KaSCGhMeXkW', 'mkbtukl4U1skxKSMSnrHUKOu0aVLko1RoyIC8p4VdhDafzCmL1KVothKjIfm', '2016-07-08 11:42:46', '2016-07-08 13:49:44');
 
 -- 
 -- Восстановить предыдущий режим SQL (SQL mode)

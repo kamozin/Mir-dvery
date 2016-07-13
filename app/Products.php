@@ -27,7 +27,7 @@ class Products extends Model
         'id_category',
         'properties',
         'img_one',
-        'img_too',
+        'img_too'
 
     ];
 

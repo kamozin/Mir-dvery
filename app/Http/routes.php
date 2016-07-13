@@ -14,10 +14,14 @@
 //Роуты открытая часть
 Route::get('/', ['as' => 'main', 'uses' => 'MainController@index']);
 Route::get('/catalog', ['as' => 'main', 'uses' => 'CatalogController@index']);
+Route::get('/catalog/{url}', ['as' => 'main', 'uses' => 'CatalogController@catalog']);
+Route::get('/products/{url}', ['as' => 'main', 'uses' => 'CatalogController@product']);
 Route::get('/e-catalog', ['as' => 'main', 'uses' => 'MainController@ecatalog']);
 Route::get('/page/{name}', ['as' => 'main', 'uses' => 'MainController@page']);
 Route::get('/actions/{name}', ['as' => 'main', 'uses' => 'ActionsController@index']);
 Route::get('/news/{name}', ['as' => 'main', 'uses' => 'NewsController@index']);
+
+
 
 
 

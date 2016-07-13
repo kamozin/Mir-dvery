@@ -75,6 +75,7 @@ class CategoryController extends Controller
 
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $extension = $file->getClientOriginalExtension();
+        $filename=TranslitController::str2url($filename);
         $filename = $filename . '-' . time() . '.' . $extension;
         $category->img = $filename;
 
@@ -210,6 +211,7 @@ class CategoryController extends Controller
 
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $extension = $file->getClientOriginalExtension();
+        $filename=TranslitController::str2url($filename);
         $filename = $filename . '-' . time() . '.' . $extension;
         $category->img = $filename;
 

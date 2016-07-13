@@ -35,6 +35,7 @@ class ProductsController extends Controller
         }
         for ($i = 0; $i < count($dir); $i++) {
             $directory_razdel = Directory::where('parent_id', '=', $dir[$i]['id'])->get();
+
             for ($j = 0; $j < count($directory_razdel); $j++) {
                 $dir[$i]['razdel'][$j] = [];
                 $dir[$i]['razdel'][$j] = array_add($dir[$i]['razdel'][$j], 'id', $directory_razdel[$j]['id']);
@@ -42,6 +43,7 @@ class ProductsController extends Controller
             }
         }
         for ($i = 0; $i < count($dir); $i++) {
+//           dd($dir);
             for ($j = 0; $j < count($dir[$i]['razdel']); $j++) {
                 $directory_properties = characteristics::where('id_razdel', '=', $dir[$i]['razdel'][$j]['id'])->get();
                 $dir[$i]['razdel'][$j]['properties']=[];
@@ -96,7 +98,7 @@ class ProductsController extends Controller
         $extension = $file->getClientOriginalExtension();
 
         $filename=TranslitController::str2url($filename);
-
+        $filename=TranslitController::str2url($filename);
         $filename = $filename . '-' . time() . '.' . $extension;
         $product->img_one = $filename;
 
@@ -110,7 +112,7 @@ class ProductsController extends Controller
         $extension = $file->getClientOriginalExtension();
 
         $filename=TranslitController::str2url($filename);
-
+        $filename=TranslitController::str2url($filename);
         $filename = $filename . '-' . time() . '.' . $extension;
         $product->img_too = $filename;
 
