@@ -112,11 +112,15 @@
         <div class="slaider" id="slaider_ak">
             <div class="fade_dop">
                 @foreach($r['harackteristick'] as $h)
-                <div >
+                    @if(empty($h))
+
+                        @else
+                <div data-id="{{$h['harakt']['id']}}">
                     <a href="/gallery/directory/{{$h['harakt']['img']}}" style="width:100%;">
                         <img src="/gallery/directory/{{$h['harakt']['img']}}" width="200" height="300" id="zoom_prodykt"> </a>
 
                 </div>
+                    @endif
                 @endforeach
 
             </div>

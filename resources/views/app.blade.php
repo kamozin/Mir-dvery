@@ -3,6 +3,7 @@
 <head>
     <title>Мир дверей</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/includes/css/bootsass.css">
     <link rel="stylesheet" type="text/css" href="/includes/css/style.css">
     <link rel="stylesheet" type="text/css" href="/includes/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/includes/slick/slick.css"/>

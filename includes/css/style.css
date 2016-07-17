@@ -50,6 +50,27 @@ header #top_menu li a {
   color: #fff;
 }
 
+header #top_menu #drop_wrap {
+  display: none;
+}
+
+header #top_menu #drop_wrap #little_menu {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+header #top_menu #drop_wrap #little_menu li {
+  width: 100%;
+}
+
+header #top_menu #drop_wrap #menu-icon {
+  text-align: center;
+  color: #fff;
+}
+
+header #top_menu #drop_wrap #menu-icon .fa-list {
+  margin-right: 2%;
+}
+
 header .slaider {
   width: 100%;
   margin-top: 45px;
@@ -170,7 +191,8 @@ header #logotype_page {
   float: left;
 }
 
-.container #catalog_catalog {
+.container .catalog_catalog {
+  position: relative;
   width: 15%;
   float: left;
   margin-left: 2.5%;
@@ -179,11 +201,34 @@ header #logotype_page {
   text-align: center;
 }
 
-.container #catalog_catalog img {
-  width: 100%;
+.container .catalog_catalog img {
+  width: 105px;
+  height: 220px;
 }
 
-.container #catalog_catalog p {
+.container .catalog_catalog .text_transp {
+  width: 70%;
+  float: left;
+  position: absolute;
+  transform: rotate(320deg);
+  top: 20px;
+  left: -18px;
+  color: #fff;
+  border-bottom: 18px solid #ff0101;
+  border-right: 22px solid transparent;
+  border-left: 15px solid transparent;
+}
+
+.container .catalog_catalog .text_transp p {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  font-size: 15px;
+  position: absolute;
+  transform: rotate(-1deg);
+}
+
+.container .catalog_catalog p {
   text-align: center;
   font-style: italic;
   font-size: 16px;
@@ -191,15 +236,15 @@ header #logotype_page {
   word-wrap: break-word;
 }
 
-.container #catalog_catalog A {
+.container .catalog_catalog A {
   text-decoration: none;
 }
 
-.container #catalog_catalog A:hover {
+.container .catalog_catalog A:hover {
   color: #888;
 }
 
-.container #catalog_catalog A:visited, .container #catalog_catalog A:link {
+.container .catalog_catalog A:visited, .container .catalog_catalog A:link {
   color: #000;
 }
 
@@ -300,8 +345,8 @@ header #logotype_page {
 }
 
 #zoom {
-  width: 150px !important;
-  height: 150px !important;
+  width: 150px;
+  height: 150px;
   float: left;
   border: 3px solid #fff;
   margin: 5px;
@@ -350,7 +395,7 @@ footer #footer {
 
 footer #footer #f-contacts {
   float: left;
-  width: 350px;
+  width: 20%;
   margin: 10px 0 0 30px;
   font-size: 18px;
   line-height: 24px;

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Акции</div>
+                    <div class="panel-heading">Характеристики</div>
 
                     <div class="panel-body">
                         <a href="/admin/directory/characteristics/{{$id}}/store" class="btn btn-primary">Добавить
@@ -65,8 +65,8 @@
 
                                     </td>
 
-                                    <td><a href="/admin/actions/edit/{{$h->id}}">Редактировать</a></td>
-                                    <td><a href="/admin/actions/destroy/{{$h->id}}">Удалить</a></td>
+                                    <td><a href="/admin/characteristics/edit/{{$h->id}}">Редактировать</a></td>
+                                    <td><a href="/admin/characteristics/destroy/{{$h->id}}">Удалить</a></td>
 
                                 </tr>
                             @endforeach

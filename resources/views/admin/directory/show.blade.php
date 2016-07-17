@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Акции</div>
+                    <div class="panel-heading">Справочники</div>
 
                     <div class="panel-body">
                         <a href="/admin/directory/store" class="btn btn-primary">Добавить справочник/раздел</a>
@@ -62,8 +62,8 @@
                                         <a href="/admin/directory/characteristics/{{$d->id}}">Характеристики</a>
                                             @endif
                                     </td>
-                                    <td><a href="/admin/actions/edit/{{$d->id}}">Редактировать</a></td>
-                                    <td><a href="/admin/actions/destroy/{{$d->id}}">Удалить</a></td>
+                                    <td><a href="/admin/directory/edit/{{$d->id}}">Редактировать</a></td>
+                                    <td><a href="/admin/directory/destroy/{{$d->id}}">Удалить</a></td>
 
                                 </tr>
                             @endforeach

@@ -1,0 +1,156 @@
+$im: !important;
+@mixin respond-to($media) {
+  @if $media == minitel {
+    @media only screen and (max-width: 319px) { @content; }
+  }
+  @else if $media == handhelds {
+    @media only screen and (min-width: 320px) and (max-width: 375px) { @content; }
+  }
+  @else if $media == wide-handhelds {
+    @media only screen and (min-width: 376px) and (max-width: 425px) { @content; }
+  }
+  @else if $media == tablets {
+    @media only screen and (min-width: 426px) and (max-width: 767px) { @content; }
+  }
+  @else if $media == planchet {
+    @media only screen and (min-width: 768px) and (max-width: 1000px) { @content; }
+  }
+  @else if $media == netbook {
+    @media only screen and (min-width: 1001px) and (max-width: 1279px) { @content; }
+  }
+  @else if $media == neetbook {
+    @media only screen and (min-width: 1280px) and (max-width: 1365px) { @content; }
+  }
+  @else if $media == desktopsmol {
+    @media only screen and (min-width: 1366px) and (max-width: 1439px) { @content; }
+  }
+  @else if $media == desktoppt {
+    @media only screen and (min-width: 1440px) and (max-width: 1599px) { @content; }
+  }
+  @else if $media == desktopxl {
+    @media only screen and (min-width: 1600px) and (max-width: 1699px) { @content; }
+  }
+  @else if $media == desktoplarg {
+    @media only screen and (min-width: 1700px) and (max-width: 1950px) { @content; }
+  }
+}
+@mixin left_bar_mini { width: 100%; float: none; text-align: center; padding-left: 13%; };
+@mixin footer_contacts_mini { font-size: 14px$im; margin: 0px$im; width: 100%$im; text-align: center;  };
+@mixin full_width { width: 100%$im; float: left$im; };
+@mixin half_nomargin_width { width: 50%$im; margin-left: 0px$im; margin-right: 0px$im; };
+@mixin emblem_availability { width: 55%$im; top: 22px$im; left: 2px$im; };
+@mixin emblem_availability_n { width: 55%$im; top: 27px$im; left: 15px$im; };
+@mixin no_display { display: none$im; } 
+@mixin yes_display { display: block$im;  }
+
+.container {
+  @include respond-to (minitel) { width: 350px; margin: auto;};
+  @include respond-to(handhelds) { width: 300px; margin: auto;};
+  @include respond-to(wide-handhelds) { width: 350px; margin: auto;};
+  @include respond-to(tablets) { width: 350px; margin: auto;};
+  @include respond-to (planchet) { width: 735px;};
+  @include respond-to(netbook) { width: 980px;};
+  @include respond-to(neetbook) { width: 1024px;};
+  @include respond-to(desktopsmol) { width: 1024px;};
+  @include respond-to (desktoppt) { width: 1200px;};
+  @include respond-to(desktopxl) { width: 1400px;};
+  @include respond-to(desktoplarg) { width: 1600px;};
+}
+
+#big_menu {
+  @include respond-to (minitel) { @include no_display; };
+  @include respond-to(handhelds) { @include no_display; };
+  @include respond-to(wide-handhelds) { @include no_display; };
+  @include respond-to(tablets) { @include no_display; };
+
+
+}
+
+#drop_wrap {
+@include respond-to (minitel) { @include yes_display; };
+  @include respond-to(handhelds) { @include yes_display; };
+  @include respond-to(wide-handhelds) { @include yes_display; };
+  @include respond-to(tablets) { @include yes_display; };
+}
+
+#phone {
+  @include respond-to (minitel) {display: none;};
+  @include respond-to(handhelds) { display: none;};
+  @include respond-to(wide-handhelds) { display: none;};
+  @include respond-to(tablets) { display: none;};
+  @include respond-to (planchet) { display: none;};
+  @include respond-to(netbook) { display: block;};
+  @include respond-to(neetbook) { display: block;};
+  @include respond-to(desktopsmol) { display: block;};
+  @include respond-to (desktoppt) { display: block;};
+  @include respond-to(desktopxl) { display: block;};
+  @include respond-to(desktoplarg) { display: block;};
+}
+
+.left_bar {
+  @include respond-to (minitel) { @include left_bar_mini; };
+  @include respond-to(handhelds) { @include left_bar_mini; };
+  @include respond-to(wide-handhelds) { @include left_bar_mini; };
+  @include respond-to(tablets) { @include left_bar_mini; };
+}
+
+#top_menu li {
+  @include respond-to (minitel) {padding-left: 0px;};
+  @include respond-to(handhelds) { width: px;};
+  @include respond-to(wide-handhelds) { width: px;};
+  @include respond-to(tablets) { width: px;};
+  @include respond-to (planchet) { padding-left: 0px$im; font-size: 12px$im;};
+}
+
+#f-contacts {
+  @include respond-to (minitel) { @include footer_contacts_mini; };
+  @include respond-to(handhelds) { @include footer_contacts_mini; };
+  @include respond-to(wide-handhelds) { @include footer_contacts_mini; };
+  @include respond-to(tablets) { @include footer_contacts_mini; };
+  @include respond-to (planchet) { font-size: 16px$im;};
+}
+
+ul.topnav {
+   @include respond-to (minitel) { margin-top: 0px$im; float: left$im; };
+  @include respond-to(handhelds) { margin-top: 0px$im; float: left$im; };
+  @include respond-to(wide-handhelds) { margin-top: 0px$im; float: left$im; };
+  @include respond-to(tablets) { margin-top: 0px$im; float: left$im; };
+
+}
+
+.catalog_prodykt {
+  @include respond-to (minitel) { @include full_width; };
+  @include respond-to(handhelds) { @include full_width; };
+  @include respond-to(wide-handhelds) { @include full_width; };
+  @include respond-to(tablets) { @include full_width; };
+}
+
+#site_info {
+  @include respond-to (minitel) { width: 100%$im; text-align: center$im; };
+  @include respond-to(handhelds) { width: 100%$im; text-align: center$im; };
+  @include respond-to(wide-handhelds) { width: 100%$im; text-align: center$im; };
+  @include respond-to(tablets) { width: 100%$im; text-align: center$im; };
+  @include respond-to (planchet) { width: 50%$im; padding-left: 4%$im;};
+}
+
+#footer {
+  @include respond-to (minitel) { height: 150px$im; };
+  @include respond-to(handhelds) { height: 150px$im; };
+  @include respond-to(wide-handhelds) { height: 150px$im; };
+  @include respond-to(tablets) { height: 150px$im; };
+}
+
+.catalog_catalog {
+  @include respond-to (minitel) { @include half_nomargin_width; };
+  @include respond-to(handhelds) { @include half_nomargin_width; };
+  @include respond-to(wide-handhelds) { @include half_nomargin_width; };
+  @include respond-to(tablets) { @include half_nomargin_width; };
+  @include respond-to (planchet) { width: 20%$im;};
+}
+
+.text_transp {
+  @include respond-to (minitel) { @include emblem_availability; };
+  @include respond-to(handhelds) { @include emblem_availability; };
+  @include respond-to(wide-handhelds) { @include emblem_availability_n; };
+  @include respond-to(tablets) { @include emblem_availability_n; };
+}

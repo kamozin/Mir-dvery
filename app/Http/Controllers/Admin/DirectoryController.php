@@ -100,5 +100,31 @@ public function  store(){
             return view('admin.directory.har.show', ['har'=>$char, 'directory'=>$directory, 'id'=>$id]);
 
     }
+//    Удаление справочника
+    public function destroy($id){
+
+        $directory=Directory::find($id);
+
+        $directory->delete();
+        return redirect()->back();
+
+    }
+
+    public function EditHar($id){
+
+        $im=characteristics::find($id);
+
+        return view('admin.directory.har.edit', ['im'=>$im]);
+    }
+
+    public function DestroyHar($id){
+
+        $harackteristick=characteristics::find($id);
+
+        $harackteristick->delete();
+
+        return redirect()->back();
+
+    }
 
 }

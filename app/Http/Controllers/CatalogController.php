@@ -81,81 +81,91 @@ class CatalogController extends Controller
         }
 
 //        Оставляем только нужные справочники
-
+//dd($properties_arr);
 //        Массив справочников отобранный для вывода
         $directory_arr = [];
-        for ($i = 0; $i < count($directory); $i++) {
 
-            for ($j = 0; $j < count($properties_arr); $j++) {
+//        for ($i = 0; $i < count($directory); $i++) {
+        $i = 0;
+        foreach ($directory as $d) {
+            foreach ($properties_arr as $p) {
 
-                if ($directory[$i]['original']['id'] == $properties_arr[$j]['har']['id_directory']) {
-
+                if ($d['original']['id'] == $p['har']['id_directory']) {
                     $directory_arr[$i] = [];
+                    $directory_arr[$i] = array_add($directory_arr[$i], 'directory', $d['original']);
 
-                    $directory_arr[$i] = array_add($directory_arr[$i], 'directory', $directory[$i]['original']);
+                    unset($d['original']);
+                    $i++;
                 } else {
 
                 }
             }
         }
+//        dd($directory_arr);
 
 //        Массив раздела отобранный для вывода
         $razdel_arr = [];
-        for ($i = 0; $i < count($razdel); $i++) {
+        $i = 0;
+//        for ($i = 0; $i < count($razdel); $i++) {
+        foreach ($razdel as $r) {
 
-            for ($j = 0; $j < count($properties_arr); $j++) {
+            foreach ($properties_arr as $p) {
 
-                if ($razdel[$i]['original']['id'] == $properties_arr[$j]['har']['id_razdel']) {
+                if ($r['original']['id'] == $p['har']['id_razdel']) {
 
                     $razdel_arr[$i] = [];
-                    $razdel_arr[$i] = array_add($razdel_arr[$i], 'razdel', $razdel[$i]['original']);
+                    $razdel_arr[$i] = array_add($razdel_arr[$i], 'razdel', $r['original']);
+
+                    unset($r['original']);
+                    $i++;
                 } else {
 
-
                 }
             }
         }
 
-
+//        Собираем в один массив Справочники и Разделы.
         $spravochniki = [];
-        for ($i = 0; $i < count($directory_arr); $i++) {
+        $i = 0;
+
+        foreach ($directory_arr as $d) {
 //            Добавляем в массив справочник
             $spravochniki[$i] = [];
-            $spravochniki[$i] = array_add($spravochniki[$i], 'directory', $directory_arr[$i]['directory']);
-            for ($j = 0; $j < count($razdel_arr); $j++) {
 
+            $spravochniki[$i] = array_add($spravochniki[$i], 'directory', $d['directory']);
+            $j = 0;
 
-                if ($spravochniki[$i]['directory']['id'] == $razdel_arr[0]['razdel']['parent_id']) {
-                    $spravochniki[$i]['directory']['razdel'][$j] = [];
-                    $spravochniki[$i]['directory']['razdel'][$j] = $razdel_arr[0]['razdel'];
-                    unset($razdel_arr[0]);
-                    sort($razdel_arr);
-                }
-            }
-        }
+            foreach ($razdel_arr as $r) {
+                if ($spravochniki[$i]['directory']['id'] == $r['razdel']['parent_id']) {
+                    $spravochniki[$i]['directory']['razdel'][$j] = $r['razdel'];
 
-        for ($i = 0; $i < count($spravochniki); $i++) {
-            $count = count($spravochniki[$i]['directory']['razdel']);
-            for ($j = 0; $j < $count; $j++) {
-                for ($k = 0; $k < count($properties_arr); $k++) {
+                    unset($r['razdel']);
 
-                    if ($spravochniki[$i]['directory']['razdel'][$j]['id'] == $properties_arr[0]['har']['id_razdel']) {
+                    $k = 0;
+                    foreach ($properties_arr as $p) {
 
-                        $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = [];
-                        $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = array_add($spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k], 'harakt', $properties_arr[0]['har']);
+                        if ($spravochniki[$i]['directory']['razdel'][$j]['id'] == $p['har']['id_razdel']) {
 
-                        unset($properties_arr[0]);
-                        sort($properties_arr);
-//                        dd($properties_arr);
+                            $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = [];
+
+ $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = array_add($spravochniki[$i]['directory']['razdel'][$j]
+ ['harackteristick'][$k], 'harakt', $p['har']);
+//                            unset($p['har']);
+
+                                $k++;
+                        }
+
                     }
+                    $j++;
                 }
+
+
             }
+            $i++;
         }
 
-//dd($spravochniki);
 
-
-        return view('product', ['product' => $product, 'spravochnick'=>$spravochniki]);
+        return view('product', ['product' => $product, 'spravochnick' => $spravochniki]);
 
     }
 
