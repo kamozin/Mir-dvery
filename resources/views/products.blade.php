@@ -81,7 +81,7 @@
         <h2>{{$category[0]['name']}}</h2>
         @if(count($products)>0)
         @foreach($products as $p)
-        <div id="catalog_catalog">
+        <div class="catalog_catalog">
             <a href="/products/{{$p->url}}"> <img src="/gallery/products/{{$p->img_one}}">
                 <p> {{$p->name}}</p></a>
         </div>

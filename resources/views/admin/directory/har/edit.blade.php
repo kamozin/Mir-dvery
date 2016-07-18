@@ -34,7 +34,7 @@
 
                         <form id="demo-form2" enctype="multipart/form-data"  method="POST" action="/admin/characteristics/update" class="form-horizontal form-label-left">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="id_razdel" value="{{ $im->id }}">
+                            <input type="hidden" name="id" value="{{ $im->id }}">
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Наименование характеристики <span class="required">*</span>
                                 </label>

@@ -3,18 +3,20 @@
 <head>
     <title>Мир дверей</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/includes/css/bootsass.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/includes/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/includes/css/bootsass.css">
     <link rel="stylesheet" type="text/css" href="/includes/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/includes/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="/includes/slick/slick-theme.css"/>
-@yield('header')
+    @yield('header')
 </head>
 <body>
 <header>
     <div id="top_menu" class="fixedMenu">
         <!-- Верхнее меню -->
-        <ul>
+        <ul id="big_menu">
             <li>
                 <a href="/" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Главная</a>
             </li>
@@ -22,27 +24,67 @@
                 <a href="/page/about" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>О компании</a>
             </li>
             <li>
-                <a href="/catalog" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Каталог продукции</a>
+                <a href="/catalog" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Каталог
+                    продукции</a>
             </li>
             <li>
-                <a href="/e-catalog/" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Электронный каталог</a>
+                <a href="/e-catalog/" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Электронный
+                    каталог</a>
             </li>
             <li>
                 <a href="/page/service/" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Сервис</a>
             </li>
             <li>
-                <a href="/page/credit/" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Кредит</a>
+                <a href="/page/credit/" class="menu_center"><i class="fa fa-caret-right"
+                                                               aria-hidden="true"></i>Кредит</a>
             </li>
             <li>
                 <a href="/page/kontakty" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Контакты</a>
             </li>
         </ul>
+
+
         <div id="phone">
-            <p style="margin-top: 0px;">Брянск, ул. Дуки, д. 65 (здание МПСУ)<br>Телефоны: (4832) 33-77-13, 30-60-34</p>				</div>
+            <p style="margin-top: 0px;">Брянск, ул. Дуки, д. 65 (здание МПСУ)<br>Телефоны: (4832) 33-77-13, 30-60-34</p>
+        </div>
         <div class="clear"></div>
+
+        {{--Для телефонов--}}
+        <nav id="drop_wrap">
+            <div id="menu-icon" ><i class="fa fa-list" aria-hidden="true"></i>Меню</div>
+            <ul id="little_menu" class="no_active">
+                <li>
+                    <a href="/" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Главная</a>
+
+                </li>
+                <li>
+                    <a href="/page/about" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>О
+                        компании1</a>
+                </li>
+                <li>
+                    <a href="/catalog" class="menu_center"><i class="fa fa-caret-right"
+                                                                        aria-hidden="true"></i>Каталог продукции</a>
+                </li>
+                <li>
+                    <a href="/e-catalog/" class="menu_center"><i class="fa fa-caret-right" aria-hidden="true"></i>Электронный
+                        каталог</a>
+                </li>
+                <li>
+                    <a href="/page/service/" class="menu_center"><i class="fa fa-caret-right"
+                                                               aria-hidden="true"></i>Сервис</a>
+                </li>
+                <li>
+                    <a href="/credit/" class="menu_center"><i class="fa fa-caret-right"
+                                                              aria-hidden="true"></i>Кредит</a>
+                </li>
+                <li>
+                    <a href="/page/kontakty" class="menu_center"><i class="fa fa-caret-right"
+                                                                        aria-hidden="true"></i>Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        {{--Для телефонов--}}
     </div>
-
-
     <div class="slaider">
         <div class="fade">
             <div><img src="/gallery/slider_top/0.jpg"></div>
@@ -59,7 +101,7 @@
     {{--<div id="logotype"><a href="/"><img src="/includes/image/logotype.png" alt="Мир Дверей" width="405" height="107" border="0" title="Мир Дверей"></a></div>--}}
 </header>
 <div class="container">
-   @yield('content')
+    @yield('content')
 </div>
 <footer>
     <div id="footer">
@@ -86,7 +128,7 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/includes/slick/slick.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.fade').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -102,7 +144,7 @@
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.fade1').slick({
             slidesToShow: 3,
             slidesToScroll: 1,
@@ -116,6 +158,17 @@
         });
     });
 </script>
+
+    <script type="text/javascript">
+            $("#menu-icon").click(function(){
+                $("#little_menu").slideToggle();
+                $("#little_menu").removeClass("no_active").toggleClass("active");
+
+
+                        });
+    </script>
+
+
 
 @yield('footer')
 

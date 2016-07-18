@@ -205,5 +205,8 @@
 
 
     </script>
-
+    <script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('message');
+    </script>
 @stop

@@ -9,10 +9,10 @@
     <div class="catalog">
 
         @foreach($category as $c)
-        <div id="produkt_catalog">
+        <div class="produkt_catalog">
             <a href="/catalog/{{$c->url}}">
-                <div id="produkt_image">
-                <img style="width: 225px; height: 150px" src="/gallery/category/{{$c->img}}">
+                <div class="produkt_image">
+                <img  src="/gallery/category/{{$c->img}}">
                     </div>
                 <p> {{$c->name}}</p></a>
         </div>

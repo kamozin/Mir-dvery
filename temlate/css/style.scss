@@ -53,34 +53,20 @@ header {
     					}
 
 
-                        .no_active {
-                        display: none;
-                       }
-                       /*
-                       .active {
-                        display: block$im;
-                        background-color: rgba(0, 0, 0, 0.8);
-                       }*/
-
                         #drop_wrap {
                     display: none;
                     #little_menu {
                         background-color: rgba(0, 0, 0, 0.8);
-                        min-height: 16em;
                          li {
                             width: 100%;
                          }
                     }
-
-                    
-
                     #menu-icon {
                         text-align: center;
                         color: #fff;
                         .fa-list {
                             margin-right: 2%;
                         }
-
                     }
                 }
 
@@ -255,7 +241,7 @@ header {
     .catalog {
         width: 100%;
         float: left;
-    .produkt_catalog {
+    #produkt_catalog {
         width: 20%;
         float: left;
         margin-left: 2.5%;
@@ -263,7 +249,7 @@ header {
         margin-top: 5%;
         text-align: center;
         
-        .produkt_image {
+        #produkt_image {
             width: 210px;
             height: 150px;
         }

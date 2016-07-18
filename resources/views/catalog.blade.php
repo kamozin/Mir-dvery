@@ -9,7 +9,7 @@
     <div class="catalog">
 
         @foreach($category as $c)
-        <div id="produkt_catalog">
+        <div class="produkt_catalog">
             <a href="/catalog/{{$c->url}}"> <img src="/gallery/category/{{$c->img}}">
                 <p>{{$c->name}}</p></a>
         </div>

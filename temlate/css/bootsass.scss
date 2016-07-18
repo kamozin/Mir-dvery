@@ -79,8 +79,8 @@ $im: !important;
   @include respond-to(wide-handhelds) { display: none;};
   @include respond-to(tablets) { display: none;};
   @include respond-to (planchet) { display: none;};
-  @include respond-to(netbook) { display: none;};
-  @include respond-to(neetbook) { display: none;};
+  @include respond-to(netbook) { display: block;};
+  @include respond-to(neetbook) { display: block;};
   @include respond-to(desktopsmol) { display: block;};
   @include respond-to (desktoppt) { display: block;};
   @include respond-to(desktopxl) { display: block;};
@@ -100,11 +100,6 @@ $im: !important;
   @include respond-to(wide-handhelds) { width: px;};
   @include respond-to(tablets) { width: px;};
   @include respond-to (planchet) { padding-left: 0px$im; font-size: 12px$im;};
-  @include respond-to(netbook) { padding-left: 0px$im; font-size: 16px$im;};
-  @include respond-to(neetbook) { padding-left: 0px$im; font-size: 16px$im;};
-  @include respond-to(desktopsmol) { padding-left: 0px$im; font-size: 16px$im;};
-
-
 }
 
 #f-contacts {
@@ -129,34 +124,6 @@ ul.topnav {
   @include respond-to(wide-handhelds) { @include full_width; };
   @include respond-to(tablets) { @include full_width; };
 }
-
-.produkt_catalog {
-  @include respond-to (minitel) { width:45%$im; };
-  @include respond-to(handhelds) { width:45%$im };
-  @include respond-to(wide-handhelds) { width:45%$im };
-  @include respond-to(tablets) { width:45%$im };
-  .produkt_image {
-    @include respond-to (minitel) { width: 150px$im; };
-  @include respond-to(handhelds) { width: 130px$im; height: 110px$im; };
-  @include respond-to(wide-handhelds) { width: 150px$im; };
-  @include respond-to(tablets) { width: 150px$im; };
-  }
-}
-
-.fade1>.slick-next {
-  @include respond-to (minitel) { background-size: 50%$im; background-position: 80% 50%$im; right: -30px$im;};
-  @include respond-to(handhelds) { background-size: 50%$im; background-position: 80% 50%$im; right: -30px$im;};
-  @include respond-to(wide-handhelds) { background-size: 50%$im; background-position: 80% 50%$im; right: -30px$im;};
-  @include respond-to(tablets) { background-size: 50%$im; background-position: 80% 50%$im; right: -30px$im;};
-}
-
-.fade1>.slick-prev {
-  @include respond-to (minitel) { background-size: 50%$im; background-position: 0% 50%$im; left: -25px$im;};
-  @include respond-to(handhelds) { background-size: 50%$im; background-position: 0% 50%$im; left: -25px$im;};
-  @include respond-to(wide-handhelds) { background-size: 50%$im; background-position: 0% 50%$im; left: -25px$im;};
-  @include respond-to(tablets) { background-size: 50%$im; background-position: 0% 50%$im; left: -25px$im;};
-}
-
 
 #site_info {
   @include respond-to (minitel) { width: 100%$im; text-align: center$im; };

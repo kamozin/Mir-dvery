@@ -88,6 +88,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::get('/admin/directory/characteristics/{id}', 'Admin\DirectoryController@ShowHar');
     Route::post('/admin/directory/characteristics/create', 'Admin\DirectoryController@CreateHar');
     Route::get('/admin/characteristics/edit/{id}', 'Admin\DirectoryController@EditHar');
+    Route::get('/admin/characteristics/update', 'Admin\DirectoryController@UpdateHar');
     Route::get('/admin/characteristics/destroy/{id}', 'Admin\DirectoryController@DestroyHar');
 
   //    Страницы

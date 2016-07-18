@@ -127,4 +127,15 @@ public function  store(){
 
     }
 
+
+    public function edit($id){
+
+        $directory=Directory::find($id);
+
+        $directorys=Directory::all();
+
+        return view ('admin.directory.edit', ['directory'=>$directory, 'directoryes'=>$directorys ]);
+
+    }
+
 }

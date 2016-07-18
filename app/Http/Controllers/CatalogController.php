@@ -148,11 +148,11 @@ class CatalogController extends Controller
 
                             $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = [];
 
- $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = array_add($spravochniki[$i]['directory']['razdel'][$j]
- ['harackteristick'][$k], 'harakt', $p['har']);
+                            $spravochniki[$i]['directory']['razdel'][$j]['harackteristick'][$k] = array_add($spravochniki[$i]['directory']['razdel'][$j]
+                            ['harackteristick'][$k], 'harakt', $p['har']);
 //                            unset($p['har']);
 
-                                $k++;
+                            $k++;
                         }
 
                     }
@@ -164,15 +164,54 @@ class CatalogController extends Controller
             $i++;
         }
 
+//        $category = $this->categoryTree();
+
+//        dd($category);
 
         return view('product', ['product' => $product, 'spravochnick' => $spravochniki]);
 
     }
 
 //    Построение дерева категорий
-    static function categoryTree()
-    {
-
-
-    }
+//    static function categoryTree()
+//    {
+//        $category_db = Category::all();
+//
+//        $categoryes = [];
+//
+//        $i = 0;
+//        foreach ($category_db as $c_db) {
+//            $categoryes[$i] = $c_db['original'];
+//            $i++;
+//        }
+//
+//        $category = [];
+//        $i = 0;
+//        foreach ($categoryes as $c_db) {
+//
+//            if ($c_db['parent_id'] == 0) {
+//
+//                $category[$i] = $c_db;
+//                unset($categoryes[$i]);
+//                sort($categoryes);
+//                $i++;
+//            }
+//
+//        }
+//
+//        foreach($categoryes as $c){
+//
+//            $key=array_search($c[])
+//
+//
+//        }
+//
+//
+//
+//        dd($categoryes);
+//
+//        return $category;
+//
+//
+//    }
 }

@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Характеристики</div>
+                        <div class="panel-heading">Товары</div>
 
                         <div class="panel-body">
                             <a href="/admin/products/store" class="btn btn-primary">Добавить товар</a>
