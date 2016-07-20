@@ -197,6 +197,97 @@ class ProductsController extends Controller
     }
 
 
+    public function editPhotos($id){
+
+
+        return view('admin.products.EditPhotos', ['id'=>$id]);
+
+
+    }
+    public function updatePhotos(Request $request){
+
+
+        $product=Products::find($request->id);
+
+        if(empty($request->file('file')) && empty($request->file('files'))){
+
+           return redirect()->back()->with('error', 'Добавьте хотя бы 1 фотографию');
+
+        }elseif(empty($request->file('files'))){
+
+
+            //        Картинка 2
+
+            $file = $request->file('files');
+
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+
+            $filename=TranslitController::str2url($filename);
+            $filename=TranslitController::str2url($filename);
+            $filename = $filename . '-' . time() . '.' . $extension;
+            $product->img_too = $filename;
+
+            $request->file('files')->move('gallery/products/', $filename);
+            $product->save();
+
+        }elseif(empty($request->file('file'))){
+
+
+
+            $file = $request->file('file');
+
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+
+            $filename=TranslitController::str2url($filename);
+            $filename=TranslitController::str2url($filename);
+            $filename = $filename . '-' . time() . '.' . $extension;
+            $product->img_one = $filename;
+
+            $request->file('file')->move('gallery/products/', $filename);
+
+
+        }else{
+            //        Картинка 1
+
+            $file = $request->file('file');
+
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+
+            $filename=TranslitController::str2url($filename);
+            $filename=TranslitController::str2url($filename);
+            $filename = $filename . '-' . time() . '.' . $extension;
+            $product->img_one = $filename;
+
+            $request->file('file')->move('gallery/products/', $filename);
+
+//        Картинка 2
+
+            $file = $request->file('files');
+
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+
+            $filename=TranslitController::str2url($filename);
+            $filename=TranslitController::str2url($filename);
+            $filename = $filename . '-' . time() . '.' . $extension;
+            $product->img_too = $filename;
+
+            $request->file('files')->move('gallery/products/', $filename);
+            $product->save();
+
+        }
+
+
+
+        return redirect('/admin/products');
+
+
+    }
+
+
 
     public function destroy($id){
 

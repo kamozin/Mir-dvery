@@ -55,6 +55,7 @@
                                             @endforeach
                                         </td>
 
+                                        <td><a href="/admin/products/edit/photos/{{$p->id}}">Обновить фотографии</a></td>
                                         <td><a href="/admin/products/edit/{{$p->id}}">Редактировать</a></td>
                                         <td><a href="/admin/products/destroy/{{$p->id}}">Удалить</a></td>
 

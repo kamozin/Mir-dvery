@@ -74,6 +74,8 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::post('/admin/products/create', 'Admin\ProductsController@productCreate');
     Route::post('/admin/products/update', 'Admin\ProductsController@update');
     Route::get('/admin/products/destroy/{id}', 'Admin\ProductsController@destroy');
+    Route::get('/admin/products/edit/photos/{id}', 'Admin\ProductsController@editPhotos');
+    Route::post('/admin/products/update/photos', 'Admin\ProductsController@updatePhotos');
 
     //    справочники
     Route::get('/admin/directory', 'Admin\DirectoryController@index');

@@ -65,7 +65,7 @@ header #top_menu #drop_wrap {
 
 header #top_menu #drop_wrap #little_menu {
   background-color: rgba(0, 0, 0, 0.8);
-  min-height: 18em;
+  min-height: 16em;
 }
 
 header #top_menu #drop_wrap #little_menu li {
@@ -275,6 +275,7 @@ header #logotype_page {
 .container .catalog .produkt_catalog .produkt_image {
   width: 210px;
   height: 150px;
+  margin: auto;
 }
 
 .container .catalog .produkt_catalog A:hover {
